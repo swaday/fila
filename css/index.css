@@ -416,7 +416,8 @@ main .trending_section button:hover {
     background-position: center;
     background-repeat: no-repeat;
     text-decoration: none;
-    padding: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
     box-sizing: border-box;
     filter: brightness(0.7);
 
@@ -424,7 +425,6 @@ main .trending_section button:hover {
         filter: brightness(1);
     }
 }
-
 
 .collection_section .collection_section_item > a h3 {
     color: white;
@@ -434,7 +434,7 @@ main .trending_section button:hover {
 }
 
 .collection_section .collection_section_item > a p {
-    color: #e0e0e0;
+    color: white;
     font-size: 16px;
     margin: 0;
 }
@@ -483,7 +483,7 @@ main .trending_section button:hover {
 .informational_section3 .informational_section3_header .arrow_button {
     padding: 20px 60px;
     background: whitesmoke;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     color: black;
     cursor: pointer;
     display: flex;
