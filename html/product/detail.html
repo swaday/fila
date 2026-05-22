@@ -4,206 +4,209 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/product/detail.css">
-
+    <link rel="stylesheet" href="../../css/index.css">
     <script src="https://kit.fontawesome.com/d19fdaba43.js" crossorigin="anonymous"></script>
     <title>상품 디테일</title>
-
 </head>
 <body>
-    <main>
-        <section id="main">
-            <div>
-                <img src="/image/detail_shorts1.webp" alt="">
+<main>
+    <!-- 메인 상단: 상품 기본 정보 및 구매 영역 -->
+    <section id="main">
+        <div>
+            <img src="/image/detail_shorts1.webp" alt="상품 메인 이미지">
+        </div>
+        <div>
+            <div class="information">
+                <div class="header">
+                    <div>
+                        <span class="tag">남성</span>
+                        <span class="tag">의류</span>
+                    </div>
+                    <button type="button" class="share">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </button>
+                </div>
+
+                <div class="title">
+                    <span>테니스 Coldwave+ 베이직 7인치 쇼츠</span>
+                </div>
+
+                <div class="group">
+                    <ul>
+                        <li><a href="#" class="active"><img src="/image/detail_shorts1.jpg" alt="썸네일 1"></a></li>
+                        <li><a href="#"><img src="/image/detail_shorts2.webp" alt="썸네일 2"></a></li>
+                        <li><a href="#"><img src="/image/detail_shorts3.webp" alt="썸네일 3"></a></li>
+                    </ul>
+                </div>
+
+                <div class="accordion">
+                    <div class="head">
+                        <span>사이즈 선택</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <div class="body">
+                        <button type="button" class="size">M(085)</button>
+                        <button type="button" class="size">L(090)</button>
+                        <button type="button" class="size">XL(095)</button>
+                        <button type="button" class="size">2XL(100)</button>
+                    </div>
+                </div>
+
+                <div class="cart">
+                    <button type="button">
+                        <b>카트에 추가</b>
+                        <strong>79,900원</strong>
+                    </button>
+                </div>
             </div>
-            <div>
-                <div class="information">
-                    <div class="header">
-                        <div>
-                            <span class="tag">남성</span>
-                            <span class="tag">의류</span>
-                        </div>
+        </div>
+    </section>
 
-                        <button type="button" class="share">
-                            <i class="fa-solid fa-share-nodes"></i>
-                        </button>
-                    </div>
+    <!-- 상품 스펙 및 상세 설명 영역 -->
+    <section id="spec">
+        <div class="item_detail">
+            <div class="image_container">
+                <img src="/image/checkpoint1.webp" alt="상세 이미지 1">
+                <img src="/image/checkpoint2.webp" alt="상세 이미지 2">
+                <img src="/image/checkpoint4.webp" alt="상세 이미지 3">
+                <img src="/image/checkpoint3.webp" alt="상세 이미지 4">
+            </div>
 
-                    <div class="title">
-                        <span>테니스 Coldwave+ 베이직 7인치 쇼츠</span>
-                    </div>
-                    <div class="group">
-                        <ul>
-                            <li><a href="#" class="active"><img src="/image/detail_shorts1.jpg" alt="3"></a></li>
-                            <li><a href="#"><img src="/image/detail_shorts2.webp" alt="3"></a></li>
-                            <li><a href="#"><img src="/image/detail_shorts3.webp" alt="3"></a></li>
-                        </ul>
-                    </div>
+            <div class="information">
+                <div class="item_detail_info">
+                    <p>냉감 기능의 COLDWAVE+ 소재를 적용하여 착용 시 즉각적인 시원함을 제공합니다. 자외선을 효과적으로 차단하는 UV CUT 기능으로 야외 활동에서도 피부를 보호할 수 있습니다. 뛰어난 통기성과 쾌적한 착용감을 유지해 장시간 활동에도 편안함이 지속됩니다. 오비 스트링을 앞·뒤 어디서나 조절할 수 있도록 설계하여 편의성을 높였습니다. 양쪽 사이드에 트임 디테일이 있어 역동적인 움직임에도 불편함이 없습니다. 활동성 중심의 설계로 경기 중에도 안정적인 착용감을 제공하며 퍼포먼스를 지원합니다. 휠라 아카이브의 상징인 7-스트라이프를 라벨 디테일에 적용해 브랜드 아이덴티티를 강조했습니다. 심플한 실루엣 속에서도 클래식한 감성을 전달하며 고급스러운 포인트 역할을 합니다. 작은 디테일 하나로도 헤리티지를 느낄 수 있는 차별화된 디자인입니다.</p>
+                    <i class="fa-solid fa-circle"></i>
+                    <span class="text">색상: WHITE/OFF WHITE</span><br>
+                    <i class="fa-solid fa-circle"></i>
+                    <span class="text">상품코드: 1100FS262TR11M008191</span>
+                </div>
+
+                <div class="accordion_container">
                     <div class="accordion">
                         <div class="head">
-                            <span>사이즈 선택</span>
+                            <b>멤버쉽 혜택</b>
                             <i class="fa-solid fa-caret-down"></i>
                         </div>
-                        <div class="body">
-                            <button type="button" class="size">M(085)</button>
-                            <button type="button" class="size">L(090)</button>
-                            <button type="button" class="size">XL(095)</button>
-                            <button type="button" class="size">2XL(100)</button>
+                        <div class="body membership">
+                            <ul>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>신규회원 10,000원 할인 쿠폰</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>첫 구매 30일 후 10,000원 재구매 쿠폰</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>카카오톡 채널 추가 시 10% 할인 쿠폰</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>리뷰 작성 시 최대 30,000P 적립</span>
+                                </li>
+                            </ul>
                         </div>
-
-                    </div>
-                    <div class="cart">
-                        <button type="button">
-                            <b>카트에 추가</b>
-                            <strong>79,900원</strong>
-                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="spec">
-            <div class="item_detail">
-                <div class="image_container">
-                        <img src="/image/checkpoint1.webp" alt="">
-                        <img src="/image/checkpoint2.webp" alt="">
-                        <img src="/image/checkpoint4.webp" alt="">
-                        <img src="/image/checkpoint3.webp" alt="">
-                </div>
-
-                <div class="information">
-                    <div class="item_detail_info">
-                        <p>냉감 기능의 COLDWAVE+ 소재를 적용하여 착용 시 즉각적인 시원함을 제공합니다. 자외선을 효과적으로 차단하는 UV CUT 기능으로 야외 활동에서도 피부를 보호할 수 있습니다. 뛰어난 통기성과 쾌적한 착용감을 유지해 장시간 활동에도 편안함이 지속됩니다. 오비 스트링을 앞·뒤 어디서나 조절할 수 있도록 설계하여 편의성을 높였습니다. 양쪽 사이드에 트임 디테일이 있어 역동적인 움직임에도 불편함이 없습니다. 활동성 중심의 설계로 경기 중에도 안정적인 착용감을 제공하며 퍼포먼스를 지원합니다. 휠라 아카이브의 상징인 7-스트라이프를 라벨 디테일에 적용해 브랜드 아이덴티티를 강조했습니다. 심플한 실루엣 속에서도 클래식한 감성을 전달하며 고급스러운 포인트 역할을 합니다. 작은 디테일 하나로도 헤리티지를 느낄 수 있는 차별화된 디자인입니다.</p>
-                        <i class="fa-solid fa-circle"></i>
-                        <span class="text">색상: WHITE/OFF WHITE</span><BR>
-                        <i class="fa-solid fa-circle"></i>
-                        <span class="text">상품코드: 1100FS262TR11M008191</span>
-                    </div>
-
-                    <div class="accordion_container">
-                        <div class="accordion">
-                            <div class="head">
-                                <b>멤버쉽 혜택</b>
-                                <i class="fa-solid fa-caret-down"></i>
+                <div class="accordion_container">
+                    <div class="accordion">
+                        <div class="head">
+                            <b>제품 상세</b>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div>
+                        <div class="body product_information">
+                            <div>
+                                <span>제품소재</span>
+                                <span>겉감1: 면 65%, 나일론 35%, 겉감2: 면 65%, 나일론 35%</span>
                             </div>
-                            <div class="body membership">
-                                <ul>
-                                    <li>
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>신규회원 10,000원 할인 쿠폰</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>첫 구매 30일 후 10,000원 재구매 쿠폰</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>카카오톡 채널 추가 시 10% 할인 쿠폰</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-check"></i>
-                                        <span>리뷰 작성 시 최대 30,000P 적립</span>
-                                    </li>
-                                </ul>
+                            <div>
+                                <span>사이즈</span>
+                                <span>M(085), L(090), XL(095), 2XL(100)</span>
+                            </div>
+                            <div>
+                                <span>제조자</span>
+                                <span>미스토코리아(주)(미스토코리아(주))</span>
+                            </div>
+                            <div>
+                                <span>제조국</span>
+                                <span>베트남</span>
+                            </div>
+                            <div>
+                                <span>제조년월</span>
+                                <span>202601</span>
+                            </div>
+                            <div>
+                                <span>세탁방법</span>
+                                <span>상세 취급방법 제품라벨 참조</span>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion_container">
-                        <div class="accordion">
-                            <div class="head">
-                                <b>제품 상세</b>
-                                <i class="fa-solid fa-caret-down"></i>
-                            </div>
-                            <div class="body product_information">
-                                <div>
-                                    <span>제품소재</span>
-                                    <span>겉감1: 면 65%, 나일론 35%, 겉감2: 면 65%, 나일론 35%</span>
-                                </div>
-                                <div>
-                                    <span>사이즈</span>
-                                    <span>M(085), L(090), XL(095), 2XL(100)</span>
-                                </div>
-                                <div>
-                                    <span>제조자</span>
-                                    <span>미스토코리아(주)(미스토코리아(주))</span>
-                                </div>
-                                <div>
-                                    <span>제조국</span>
-                                    <span>베트남</span>
-                                </div>
-                                <div>
-                                    <span>제조년월</span>
-                                    <span>202601</span>
-                                </div>
-                                <div>
-                                    <span>세탁방법</span>
-                                    <span>상세 취급방법 제품라벨 참조</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="head">
-                                <b>핏 & 스펙 가이드</b>
-                                <i class="fa-solid fa-caret-down"></i>
-                            </div>
-                            <div class="body fit_spec_guide">
-                                <div class="fit_container">
-                                    <div>
-                                        <span class="fit_style">SLIM</span><br>
-                                        <span>부담스럽지 않게 날씬해 보이는 효과를 주는 핏</span>
-                                    </div>
-                                    <div>
-                                        <span class="fit_style">STANDARD</span><br>
-                                        <span>가장 기본적이고 깔끔한, 조금 여유있는 실루엣의 핏</span>
-                                    </div>
-                                    <div>
-                                        <span class="fit_style">SEMI-OVER</span><br>
-                                        <span>편안하고 루즈한 실루엣의 핏</span>
-                                    </div>
-                                    <div>
-                                        <span class="fit_style">OVER</span><br>
-                                        <span>자연스러운 스트릿무드의 전체적으로 넉넉한 핏</span>
-                                    </div>
-                                </div>
 
-                                <div class="spec_container">
-                                    <div class="spec">
-                                        <b>신축성</b>
-                                        <div class="progress_container">
-                                            <div class="progress parent">
-                                                <div class="progress child"></div>
-                                            </div>
-                                            <div>
-                                                <span>없음</span>
-                                                <span>보통</span>
-                                                <span>좋음</span>
-                                            </div>
+                    <div class="accordion">
+                        <div class="head">
+                            <b>핏 & 스펙 가이드</b>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div>
+                        <div class="body fit_spec_guide">
+                            <div class="fit_container">
+                                <div>
+                                    <span class="fit_style">SLIM</span><br>
+                                    <span>부담스럽지 않게 날씬해 보이는 효과를 주는 핏</span>
+                                </div>
+                                <div>
+                                    <span class="fit_style">STANDARD</span><br>
+                                    <span>가장 기본적이고 깔끔한, 조금 여유있는 실루엣의 핏</span>
+                                </div>
+                                <div>
+                                    <span class="fit_style">SEMI-OVER</span><br>
+                                    <span>편안하고 루즈한 실루엣의 핏</span>
+                                </div>
+                                <div>
+                                    <span class="fit_style">OVER</span><br>
+                                    <span>자연스러운 스트릿무드의 전체적으로 넉넉한 핏</span>
+                                </div>
+                            </div>
+
+                            <div class="spec_container">
+                                <div class="spec">
+                                    <b>신축성</b>
+                                    <div class="progress_container">
+                                        <div class="progress parent">
+                                            <div class="progress child"></div>
+                                        </div>
+                                        <div>
+                                            <span>없음</span>
+                                            <span>보통</span>
+                                            <span>좋음</span>
                                         </div>
                                     </div>
-                                    <div class="spec">
-                                        <b>두께감</b>
-                                        <div class="progress_container">
-                                            <div class="progress parent">
-                                                <div class="progress child"></div>
-                                            </div>
-                                            <div>
-                                                <span>없음</span>
-                                                <span>보통</span>
-                                                <span>좋음</span>
-                                            </div>
+                                </div>
+                                <div class="spec">
+                                    <b>두께감</b>
+                                    <div class="progress_container">
+                                        <div class="progress parent">
+                                            <div class="progress child"></div>
+                                        </div>
+                                        <div>
+                                            <span>없음</span>
+                                            <span>보통</span>
+                                            <span>좋음</span>
                                         </div>
                                     </div>
-                                    <div class="spec">
-                                        <b>계절감</b>
-                                        <div class="progress_container">
-                                            <div class="progress parent">
-                                                <div class="progress child"></div>
-                                            </div>
-                                            <div>
-                                                <span>봄·가을</span>
-                                                <span>여름</span>
-                                                <span>겨울</span>
-                                                <span>사계절</span>
-                                            </div>
+                                </div>
+                                <div class="spec">
+                                    <b>계절감</b>
+                                    <div class="progress_container">
+                                        <div class="progress parent">
+                                            <div class="progress child"></div>
+                                        </div>
+                                        <div>
+                                            <span>봄·가을</span>
+                                            <span>여름</span>
+                                            <span>겨울</span>
+                                            <span>사계절</span>
                                         </div>
                                     </div>
                                 </div>
@@ -212,217 +215,201 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="checkpoint">
-            <div class="checkpoint_header">
-                <h2>체크포인트</h2>
-                <div class="arrow_button_container">
-                    <button type="button" class="arrow_button">
-                        <i class="fa-solid fa-caret-left"></i>
-                    </button>
-                    <button type="button" class="arrow_button">
-                        <i class="fa-solid fa-caret-right"></i>
-                    </button>
-                </div>
+    <!-- 체크포인트 영역 -->
+    <section id="checkpoint">
+        <div class="checkpoint_header">
+            <h2>체크포인트</h2>
+            <div class="arrow_button_container">
+                <button type="button" class="arrow_button">
+                    <i class="fa-solid fa-caret-left"></i>
+                </button>
+                <button type="button" class="arrow_button">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
             </div>
-            <div class="checkpoint_card_container">
-                <div class="card_container">
-                    <div class="card">
-                        <div class="image_container">
-                            <img src="/image/checkpoint1.webp" alt="">
-                        </div>
-                        <div class="card_content">
-                            <h3>CLODWAVE+ 냉감 기능성 소재</h3>
-                            <p>냉감 기능의 COLDWAVE+ 소재를 적용해 착용 즉시 시원한 촉감을 제공하며, 여름철 운동 시 열감과 불쾌감을 효과적으로 줄여줍니다.</p>
-                        </div>
+        </div>
+        <div class="checkpoint_card_container">
+            <div class="card_container">
+                <div class="card">
+                    <div class="image_container">
+                        <img src="/image/checkpoint1.webp" alt="체크포인트 1">
                     </div>
-                </div>
-                <div class="card_container">
-                    <div class="card">
-                        <div class="image_container">
-                            <img src="/image/checkpoint2.webp" alt="">
-                        </div>
-                        <div class="card_content">
-                            <h3>사이드 트임 디테일</h3>
-                            <p>양쪽 사이드 트임 디테일이 다리 움직임을 자연스럽게 도와주어 역동적인 플레이에도 불편함 없이 퍼포먼스를 지원합니다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card_container">
-                    <div class="card">
-                        <div class="image_container">
-                            <img src="/image/checkpoint3.webp" alt="">
-                        </div>
-                        <div class="card_content">
-                            <h3>7-스트라이프 라벨 포인트</h3>
-                            <p>휠라 아카이브의 상징인 7-스트라이프를 라벨 디테일에 적용해 브랜드 아이덴티티를 강조했습니다. 심플한 실루엣 속에서도 클래식한 감성을 전달하는 고급스러운 포인트가 됩니다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card_container">
-                    <div class="card">
-                        <div class="image_container">
-                            <img src="/image/checkpoint4.webp" alt="">
-                        </div>
-                        <div class="card_content">
-                            <h3>스트링 조절 설계</h3>
-                            <p>허리 오비 스트링을 앞·뒤 어디서나 조절할 수 있도록 설계해 착용 편의성을 높이고, 체형에 맞는 안정적인 핏을 완성합니다.</p>
-                        </div>
+                    <div class="card_content">
+                        <h3>CLODWAVE+ 냉감 기능성 소재</h3>
+                        <p>냉감 기능의 COLDWAVE+ 소재를 적용해 착용 즉시 시원한 촉감을 제공하며, 여름철 운동 시 열감과 불쾌감을 효과적으로 줄여줍니다.</p>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="card_container">
+                <div class="card">
+                    <div class="image_container">
+                        <img src="/image/checkpoint2.webp" alt="체크포인트 2">
+                    </div>
+                    <div class="card_content">
+                        <h3>사이드 트임 디테일</h3>
+                        <p>양쪽 사이드 트임 디테일이 다리 움직임을 자연스럽게 도와주어 역동적인 플레이에도 불편함 없이 퍼포먼스를 지원합니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card_container">
+                <div class="card">
+                    <div class="image_container">
+                        <img src="/image/checkpoint3.webp" alt="체크포인트 3">
+                    </div>
+                    <div class="card_content">
+                        <h3>7-스트라이프 라벨 포인트</h3>
+                        <p>휠라 아카이브의 상징인 7-스트라이프를 라벨 디테일에 적용해 브랜드 아이덴티티를 강조했습니다. 심플한 실루엣 속에서도 클래식한 감성을 전달하는 고급스러운 포인트가 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card_container">
+                <div class="card">
+                    <div class="image_container">
+                        <img src="/image/checkpoint4.webp" alt="체크포인트 4">
+                    </div>
+                    <div class="card_content">
+                        <h3>스트링 조절 설계</h3>
+                        <p>허리 오비 스트링을 앞·뒤 어디서나 조절할 수 있도록 설계해 착용 편의성을 높이고, 체형에 맞는 안정적인 핏을 완성합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="modelcut">
-            <div class="modelcut_header">
-                <div class="modelcut_header_content">
-                    <h2>모델컷</h2>
-                    <p>(남) 188cm / 착용 사이즈 : XL</p>
-                    <p>* 모델 착용 이미지보다 제품컷 이미지의 컬러가 정확합니다.</p>
-                </div>
-                <div class="arrow_button_container">
-                    <button type="button" class="arrow_button">
-                        <i class="fa-solid fa-caret-left"></i>
-                    </button>
-                    <button type="button" class="arrow_button">
-                        <i class="fa-solid fa-caret-right"></i>
-                    </button>
-                </div>
+    <!-- 모델컷 영역 -->
+    <section id="modelcut">
+        <div class="modelcut_header">
+            <div class="modelcut_header_content">
+                <h2>모델컷</h2>
+                <p>(남) 188cm / 착용 사이즈 : XL</p>
+                <p>* 모델 착용 이미지보다 제품컷 이미지의 컬러가 정확합니다.</p>
             </div>
-            <div class="modelcut_image">
-                <img src="/image/modelcut1.jpg" alt="">
-                <img src="/image/modelcut2.jpg" alt="">
-                <img src="/image/modelcut3.jpg" alt="">
-                <img src="/image/modelcut4.jpg" alt="">
+            <div class="arrow_button_container">
+                <button type="button" class="arrow_button">
+                    <i class="fa-solid fa-caret-left"></i>
+                </button>
+                <button type="button" class="arrow_button">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
             </div>
-        </section>
+        </div>
+        <div class="modelcut_image">
+            <img src="/image/modelcut1.jpg" alt="모델컷 1">
+            <img src="/image/modelcut2.jpg" alt="모델컷 2">
+            <img src="/image/modelcut3.jpg" alt="모델컷 3">
+            <img src="/image/modelcut4.jpg" alt="모델컷 4">
+        </div>
+    </section>
 
-        <section id="review">
-            <h2>REVIEW</h2>
-            <button type="button" class="review_write_button">내 리뷰 작성하기</button>
-            <div class="review_gauge_container">
-                <div class="review_grade">
-                    <div class="review_grade_star">
-                        <i class="fa-solid fa-star"></i>
-                        <span>5.0</span>
-                    </div>
-                    <p>100%가 <b class="emp">아주 좋아요</b> 라고 평가했습니다.</p>
-                    <p>리뷰 1개</p>
-                </div>
-                <div class="review_guage">
-                    <span>아주 좋아요</span>
-                    <div class="rating_container">
-                        <!-- 게이지의 배경이 될 전체 바 -->
-                        <div class="progress_bar_bg">
-                            <!-- 평점에 따라 채워질 실제 게이지 (예: 80%) -->
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
-                        </div>
-                        <!-- 필요하다면 점수 텍스트 표시 -->
-                        <span class="rating_text">1</span>
-                    </div>
-                    <span>맘에 들어요</span>
-                    <div class="rating_container">
-                        <!-- 게이지의 배경이 될 전체 바 -->
-                        <div class="progress_bar_bg">
-                            <!-- 평점에 따라 채워질 실제 게이지 (예: 80%) -->
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
-                        </div>
-                        <!-- 필요하다면 점수 텍스트 표시 -->
-                        <span class="rating_text">0</span>
-                    </div>
-                    <span>보통이에요</span>
-                    <div class="rating_container">
-                        <!-- 게이지의 배경이 될 전체 바 -->
-                        <div class="progress_bar_bg">
-                            <!-- 평점에 따라 채워질 실제 게이지 (예: 80%) -->
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
-                        </div>
-                        <!-- 필요하다면 점수 텍스트 표시 -->
-                        <span class="rating_text">0</span>
-                    </div>
-                    <span>그냥 그래요</span>
-                    <div class="rating_container">
-                        <!-- 게이지의 배경이 될 전체 바 -->
-                        <div class="progress_bar_bg">
-                            <!-- 평점에 따라 채워질 실제 게이지 (예: 80%) -->
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
-                        </div>
-                        <!-- 필요하다면 점수 텍스트 표시 -->
-                        <span class="rating_text">0</span>
-                    </div>
-                    <span>별로에요</span>
-                    <div class="rating_container">
-                        <!-- 게이지의 배경이 될 전체 바 -->
-                        <div class="progress_bar_bg">
-                            <!-- 평점에 따라 채워질 실제 게이지 (예: 80%) -->
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
-                        </div>
-                        <!-- 필요하다면 점수 텍스트 표시 -->
-                        <span class="rating_text">0</span>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-            <hr>
+    <!-- 리뷰 영역 -->
+    <section id="review">
+        <h2>REVIEW</h2>
+        <button type="button" class="review_write_button">내 리뷰 작성하기</button>
 
-            <div class="review_filter">
-                <div class="review_filter_container">
-                    <a href="">최신순</a>
-                    <a href="">AI 추천순</a>
-                    <a href="">별점순</a>
+        <div class="review_gauge_container">
+            <div class="review_grade">
+                <div class="review_grade_star">
+                    <i class="fa-solid fa-star"></i>
+                    <span>5.0</span>
                 </div>
-                <div class="review_search_box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="리뷰 키워드 검색">
-                </div>
+                <p>100%가 <b class="emp">아주 좋아요</b> 라고 평가했습니다.</p>
+                <p>리뷰 1개</p>
             </div>
-            <hr>
-            <div class="review_detail_filter">
-                <div class="review_filter_button_container">
-                    <button type="button">별점
-                    <i class="fa-solid fa-angle-down"></i>
-                    </button>
-                </div>
-                <div class="review_filter_button_container">
-                    <button type="button">사이즈 어때요?
-                    <i class="fa-solid fa-angle-down"></i>
-                    </button>
-                </div>
-                <div class="review_filter_button_container">
-                    <button type="button">키
-                    <i class="fa-solid fa-angle-down"></i>
-                    </button>
-                </div>
-                <div class="review_filter_button_container">
-                    <button type="button">몸무게
-                    <i class="fa-solid fa-angle-down"></i>
-                    </button>
-                </div>
-                <div class="review_filter_button_container">
-                    <button type="button">성별
-                    <i class="fa-solid fa-angle-down"></i>
-                    </button>
-                </div>
-            </div>
-            <hr>
-            <div class="review_container">
-                <div class="review">
-                    <span>휠라 스타필드고양점</span>
-                    <p class="option">상품 옵션 L(90)</p>
-                    <div class="review_star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+            <div class="review_guage">
+                <span>아주 좋아요</span>
+                <div class="rating_container">
+                    <div class="progress_bar_bg">
+                        <div class="progress_bar_fill" style="width: 80%;"></div>
                     </div>
-                    <p>길이감 적당하고, 흰색 쇼츠 색감이 좋아서 구매.</p>
-                    <button type="button"  class="warning">
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                        <span>신고 및 차단</span>
-                    </button>
-                    <br>
+                    <span class="rating_text">1</span>
+                </div>
+                <span>맘에 들어요</span>
+                <div class="rating_container">
+                    <div class="progress_bar_bg">
+                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="rating_text">0</span>
+                </div>
+                <span>보통이에요</span>
+                <div class="rating_container">
+                    <div class="progress_bar_bg">
+                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="rating_text">0</span>
+                </div>
+                <span>그냥 그래요</span>
+                <div class="rating_container">
+                    <div class="progress_bar_bg">
+                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="rating_text">0</span>
+                </div>
+                <span>별로에요</span>
+                <div class="rating_container">
+                    <div class="progress_bar_bg">
+                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                    </div>
+                    <span class="rating_text">0</span>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="review_filter">
+            <div class="review_filter_container">
+                <a href="">최신순</a>
+                <a href="">AI 추천순</a>
+                <a href="">별점순</a>
+            </div>
+            <div class="review_search_box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="리뷰 키워드 검색">
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="review_detail_filter">
+            <div class="review_filter_button_container">
+                <button type="button">별점 <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+            <div class="review_filter_button_container">
+                <button type="button">사이즈 어때요? <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+            <div class="review_filter_button_container">
+                <button type="button">키 <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+            <div class="review_filter_button_container">
+                <button type="button">몸무게 <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+            <div class="review_filter_button_container">
+                <button type="button">성별 <i class="fa-solid fa-angle-down"></i></button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="review_container">
+            <div class="review">
+                <span>휠라 스타필드고양점</span>
+                <p class="option">상품 옵션 L(90)</p>
+                <div class="review_star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>길이감 적당하고, 흰색 쇼츠 색감이 좋아서 구매.</p>
+                <button type="button" class="warning">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>신고 및 차단</span>
+                </button>
+                <div class="review_button">
                     <button type="button">
                         <i class="fa-regular fa-thumbs-up"></i>
                         <span>도움돼요</span>
@@ -436,19 +423,92 @@
                         <i class="fa-solid fa-angle-down"></i>
                     </button>
                 </div>
-                <div class="review_writer">
-                    <span>ent****</span>
-                    <p>작성자 등급</p>
-                    <span>회원</span>
-                    <span>2026. 3. 20.</span>
-                </div>
             </div>
+            <div class="review_writer">
+                <span class="id">ent****</span><br>
+                <b>작성자 등급</b><span class="group">회원</span><br>
+                <span class="date">2026. 3. 20.</span>
+            </div>
+        </div>
+    </section>
+</main>
 
-
-
+<!-- 푸터 영역 -->
+<footer>
+    <div>
+        <section class="site_nav">
+            <div>
+                <h4>Corporate</h4>
+                <ul>
+                    <li><a href="#">About FILA</a></li>
+                    <li><a href="#">Athletes</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Collaboration</a></li>
+                    <li><a href="#">Misto Holdings IR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Partnership</h4>
+                <ul>
+                    <li><a href="#">단체판매</a></li>
+                    <li><a href="#">대리점 개설문의</a></li>
+                    <li><a href="#">입찰 참여 안내</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">1:1문의</a></li>
+                    <li><a href="#">멤버혜택</a></li>
+                </ul>
+            </div>
         </section>
 
-    </main>
+        <div>
+            <section class="sns_nav">
+                <nav>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="me_information">
+                <div>딩동댕</div>
+                <div>dingdongdang@naver.com</div>
+                <div>평일 월 - 금 : 09시 - 18시 (공휴일 제외)</div>
+            </section>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <section class="corp_information">
+            <div>
+                <div>
+                    <span>미스토코리아(주) 대표이사 : 김지헌</span>
+                    <span>서울특별시 성북구 보문로 35</span>
+                    <span>사업자등록번호 : 716-81-01573 사업자정보확인</span>
+                </div>
+                <div>
+                    <span>통신판매업신고 : 제 2024-서울성북-0914 호</span>
+                    <span>개인정보 보호책임자 : 이학우</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="site_information">
+            <div>본 사이트는 실제로 동작하는 사이트가 아닙니다.</div>
+            <div>본 사이트의 상품이미지 저작권은 미스토코리아(주)에 있으며, 사이트의 내용은 법적 효력이 없습니다.</div>
+        </section>
+    </div>
+</footer>
 </body>
 </html>
-

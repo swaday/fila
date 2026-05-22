@@ -657,22 +657,44 @@
     transition: background-color 0.3s;
 }
 
+/*#review .review_gauge_container{*/
+/*    padding-top: 20px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    text-align: center;*/
+/*}*/
+
 #review .review_gauge_container{
     padding-top: 20px;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
 }
 
+/*#review .review_gauge_container .review_grade{*/
+/*    background-color: #ffffff;*/
+/*    width: 345px;*/
+/*    height: 120px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    border-right: 1px solid #cccccc;*/
+/*}*/
+
 #review .review_gauge_container .review_grade{
-    background-color: #ffffff;
-    width: 345px;
-    height: 120px;
+    flex-shrink: 0;
+
+    width: 320px;
+    min-height: 160px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid #cccccc;
+
+    border-right: 1px solid #e5e5e5;
 }
 
 #review .review_gauge_container i{
@@ -703,58 +725,112 @@
 }
 
 /* 1. 전체를 감싸는 컨테이너: Grid로 2칸짜리 레이아웃을 만듭니다 */
-.review_guage {
-    display: grid;
-    /* [수정] 왼쪽 텍스트(90px 고정) | 오른쪽 게이지+숫자 박스(남은 공간 전부) */
-    grid-template-columns: 90px 1fr;
-    align-items: center;              /* 세로축 중앙 정렬 */
-    row-gap: 6px;                    /* 줄과 줄 사이 간격 */
-    column-gap: 16px;                 /* 텍스트와 게이지 사이 간격 */
+/*.review_guage {*/
+/*    display: grid;*/
+/*    !* [수정] 왼쪽 텍스트(90px 고정) | 오른쪽 게이지+숫자 박스(남은 공간 전부) *!*/
+/*    grid-template-columns: 90px 1fr;*/
+/*    align-items: center;              !* 세로축 중앙 정렬 *!*/
+/*    row-gap: 6px;                    !* 줄과 줄 사이 간격 *!*/
+/*    column-gap: 16px;                 !* 텍스트와 게이지 사이 간격 *!*/
 
+/*    width: 100%;*/
+/*    max-width: 1000px;                 !* 게이지 영역 최대 너비 *!*/
+/*    margin: 0 auto;*/
+/*}*/
+
+#review .review_guage{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: center;
+    row-gap: 8px;
+    column-gap: 20px;
     width: 100%;
-    max-width: 1000px;                 /* 게이지 영역 최대 너비 */
-    margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 /* 2. 왼쪽 평가 텍스트 (아주 좋아요, 맘에 들어요 등) */
-.review_guage > span {
-    font-size: 14px;
-    color: #555;
-    font-weight: 500;
-    white-space: nowrap;              /* 글자가 강제로 줄바꿈되는 것 방지 */
+/*.review_guage > span {*/
+/*    font-size: 14px;*/
+/*    color: #555;*/
+/*    font-weight: 500;*/
+/*    white-space: nowrap;              !* 글자가 강제로 줄바꿈되는 것 방지 *!*/
+/*}*/
+
+#review .review_guage > span{
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+    white-space: nowrap;
 }
 
 /* 3. 오른쪽 게이지 + 숫자가 함께 들어있는 컨테이너 박스 */
-.review_guage .rating_container {
-    display: flex;                    /* 내부에 있는 회색바와 숫자를 가로로 배치 */
-    align-items: center;              /* 세로 중앙 정렬 */
-    gap: 12px;                        /* 회색 바와 숫자 사이의 간격 */
+/*.review_guage .rating_container {*/
+/*    display: flex;                    !* 내부에 있는 회색바와 숫자를 가로로 배치 *!*/
+/*    align-items: center;              !* 세로 중앙 정렬 *!*/
+/*    gap: 12px;                        !* 회색 바와 숫자 사이의 간격 *!*/
+/*    width: 100%;*/
+/*}*/
+
+#review .review_guage .rating_container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     width: 100%;
 }
 
 /* 4. 게이지 배경 바 (회색) */
-.review_guage .progress_bar_bg {
-    flex-grow: 1;                     /* 숫자를 제외한 남은 공간을 꽉 채우기 */
-    height: 8px;                      /* 게이지 두께 */
-    background-color: #f1f1f1;        /* 비어있는 바 색상 */
-    border-radius: 4px;
-    overflow: hidden;                 /* 자식이 둥근 모서리 밖으로 넘치지 않게 */
+/*.review_guage .progress_bar_bg {*/
+/*    flex-grow: 1;                     !* 숫자를 제외한 남은 공간을 꽉 채우기 *!*/
+/*    height: 8px;                      !* 게이지 두께 *!*/
+/*    background-color: #f1f1f1;        !* 비어있는 바 색상 *!*/
+/*    border-radius: 4px;*/
+/*    overflow: hidden;                 !* 자식이 둥근 모서리 밖으로 넘치지 않게 *!*/
+/*}*/
+
+#review .review_guage .progress_bar_bg{
+    flex: 1;
+    height: 10px;
+    background-color: #f1f1f1;
+    border-radius: 999px;
+    overflow: hidden;
 }
 
 /* 5. 실제 채워지는 게이지 바 (검은색) */
-.review_guage .progress_bar_fill {
+/*.review_guage .progress_bar_fill {*/
+/*    height: 100%;*/
+/*    background-color: #333;           !* 채워지는 색상 *!*/
+/*    border-radius: 4px;*/
+/*    transition: width 0.3s ease;*/
+/*}*/
+
+#review .review_guage .progress_bar_fill{
     height: 100%;
-    background-color: #333;           /* 채워지는 색상 */
-    border-radius: 4px;
+    background: linear-gradient(
+            90deg,
+            #1c1c1c 0%,
+            #9b9b9b 100%
+    );
+    border-radius: 999px;
     transition: width 0.3s ease;
 }
 
 /* 6. 오른쪽 끝 평점 숫자 텍스트 (1, 0 등) */
-.review_guage .rating_text {
+/*.review_guage .rating_text {*/
+/*    font-size: 14px;*/
+/*    font-weight: 600;*/
+/*    color: #111;*/
+/*    min-width: 15px;                  !* 숫자가 차지할 최소 너비 확보해 정렬 유지 *!*/
+/*    text-align: right;*/
+/*}*/
+
+#review .review_guage .rating_text{
+    min-width: 16px;
+
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     color: #111;
-    min-width: 15px;                  /* 숫자가 차지할 최소 너비 확보해 정렬 유지 */
+
     text-align: right;
 }
 
@@ -842,6 +918,14 @@
 }
 
 /*********************************/
+#review .review_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 80px;
+}
+
 
 #review .review_container .review{
     padding-top: 40px;
@@ -866,6 +950,8 @@
 
 #review .review_container .review .review_star{
     margin-top: 30px;
+    margin-bottom: 10px;
+
 }
 
 #review .review_container .review .review_star i{
@@ -882,4 +968,48 @@
 #review .review_container .review .warning{
     font-size: 14px;
     border: unset;
+    margin-top: 20px;
+
+}
+
+#review .review_container .review .review_button > button{
+    color: #000000;
+    border: none;
+    padding: 6px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#review .review_container .review_writer{
+    margin-right: 300px;
+}
+
+#review .review_container .review_writer .id{
+    font-size: 14px;
+    color: #000000;
+    font-weight: 600;
+    line-height: 2.0;
+}
+
+#review .review_container .review_writer > b{
+    font-size: 14px;
+    color: #525252;
+    font-weight: 600;
+    line-height: 2.0;
+}
+
+#review .review_container .review_writer .group{
+    font-size: 14px;
+    color: #525252;
+    font-weight: 400;
+    padding-left: 10px;
+    line-height: 2.0;
+
+}
+
+#review .review_container .review_writer .date{
+    font-size: 14px;
+    color: #525252;
 }
