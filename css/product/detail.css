@@ -81,7 +81,7 @@
 
 #main .information .header .tag{
     border-radius: 32px;
-    border: 1px solid #000;
+    border: 1px solid #7e7e7e;
     font-size: 14px;
     padding: 2px 12px;
 }
@@ -95,8 +95,6 @@
 /* ==========================================================================
    1. 메인 상품 소개 섹션
    ========================================================================== */
-
-
 #main .information .group ul{
     display: flex;
     gap: 12px;
@@ -133,7 +131,7 @@
 
 #main .information .title{
     font-size: 40px;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 40px;
 }
 
@@ -142,15 +140,15 @@
    1. 메인 상품 소개 섹션(사이즈 선택)
    ========================================================================== */
 
-#main .information .accordion {
+#main .information .accordion_size {
     border: 1px solid #000;
-    border-radius: 24px;
+    border-radius: 10px;
     padding: 12px 24px;
     background-color: #f6f6f6;
     margin-bottom: 12px;
 }
 
-#main .information .accordion > .head {
+#main .information .accordion_size > .head {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,29 +158,39 @@
     padding: 8px 0;
 }
 
-#main .information .accordion > .body {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 12px;
-    padding-bottom: 20px;
+#main .information .accordion_size .body {
+    display: none;
 }
 
-#main .information .accordion > .body > button.size {
-    width: 100%;
+#main .information .accordion_size.active .body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 8px;   /* 상하 20px, 좌우 8px */
+    margin-top: 16px;
+}
+
+#main .information .accordion_size.active .fa-caret-down {
+    transform: rotate(180deg);
+}
+
+#main .information .accordion_size .body > button {
+    width: calc(25% - 6px); /* 4열 배치로 작게 조정 */
     border-radius: 24px;
     background-color: transparent;
     border: 1px solid #d5d5d5;
-    padding: 8px 0;
-    font-size: 12px;
+    padding: 6px 0;         /* 높이 줄임 */
+    font-size: 12px;        /* 글자 크기 줄임 */
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
+    box-sizing: border-box;
 }
 
-#main .information .accordion > .body > button.size:hover {
+#main .information .accordion_size .body > button:hover,
+#main .information .accordion_size .body > button.selected {
     background-color: #393939;
     color: #fff;
+    border-color: #393939;
 }
 
 
@@ -191,8 +199,8 @@
    ========================================================================== */
 
 #main .information .cart {
-    border: 1px solid black;
-    border-radius: 50px;
+    border: none;
+    border-radius: 10px;
     background-color: #000;
     color: white;
     margin-top: 20px;
@@ -207,7 +215,7 @@
     justify-content: space-between;
     align-items: center;
     border: none;
-    background: none;
+    background-color: #000000;
     color: inherit;
     cursor: pointer;
     font-size: 16px;
@@ -225,35 +233,40 @@
    2. 제품 스펙 섹션
    ========================================================================== */
 
-#spec .item_detail{
+#spec .item_detail {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 80px 40px;
+    /* 추가: 자식들이 부모 높이에 꽉 차지 않고 각자 내용만큼만 차지하게 설정 */
+    align-items: flex-start;
 }
 
-#spec .item_detail .image_container{
+#spec .item_detail .image_container {
     position: sticky;
-    top: 0;
-    left: 0;
+    top: 20px; /* 적당한 상단 여백 */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
+    /* 추가: 아코디언이 열려도 이 컨테이너는 자기 크기를 유지함 */
     align-self: flex-start;
 }
 
-#spec .item_detail .image_container > img{
+#spec .item_detail .image_container > img {
     width: 100%;
-    height: 100%;
+    /* 수정: height: 100% 대신 auto로 설정하여 이미지 비율 보호 */
+    height: auto;
+    aspect-ratio: 1 / 1; /* 정사각형 비율 유지 */
     object-fit: cover;
 }
 
-#spec .item_detail .information{
-    flex: 1;
+#spec .item_detail .information {
+    /* flex: 1; Grid 자식에게는 필요 없으므로 삭제하거나 유지해도 무방 */
     padding: 0 20px;
+    /* 추가: 우측 영역이 길어져도 좌측에 영향을 주지 않도록 설정 */
+    min-width: 0;
 }
-
 #spec .item_detail .information .item_detail_info{
     padding-bottom: 60px;
 }
@@ -310,14 +323,21 @@
 #spec .accordion_container .accordion > .head i {
     font-size: 14px;
     color: #999;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
+    pointer-events: none;
 }
 
 #spec .accordion_container .accordion > .body {
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     font-size: 14px;
     line-height: 1.6;
     color: #666;
+    display: none;
+    overflow: hidden;
+}
+
+#spec .accordion_container .accordion.active > .body {
+    display: block;
 }
 
 #spec .accordion_container .membership ul {
@@ -329,28 +349,31 @@
 }
 
 #spec .accordion_container .product_information {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    row-gap: 16px;
-    column-gap: 20px;
-    padding: 10px 0;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 20px; /* 행 간격 */
 }
 
-#spec .accordion_container .product_information > div {
-    display: contents;
+#spec .accordion_container .product_information .info_row {
+    display: flex;
+    align-items: flex-start;
+    padding: 4px 0;
 }
 
-#spec .accordion_container .product_information > div > span:first-child {
+#spec .accordion_container .product_information .info_row > span:first-child {
+    flex: 0 0 120px;        /* 타이틀 너비를 120px로 고정 (가로 정렬 유지) */
     font-size: 14px;
     font-weight: 600;
     color: #222;
 }
 
-#spec .accordion_container .product_information > div > span:last-child {
+#spec .accordion_container .product_information .info_row > span:last-child {
+    flex: 1;                /* 남은 공간을 모두 차지 */
     font-size: 14px;
     font-weight: 400;
     color: #666;
     line-height: 1.4;
+    word-break: keep-all;   /* 단어 단위로 예쁘게 줄바꿈 */
 }
 
 #spec .accordion_container .fit_spec_guide{
@@ -364,12 +387,13 @@
     gap: 20px;
 }
 
-#spec .accordion_container .fit_container > div{
+#spec .accordion_container .fit_container .fit_item{
     border: 1px solid #000;
     padding: 10px 20px;
     width: 250px;
     height: 120px;
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 #spec .accordion_container .fit_container > div > .fit_style{
@@ -378,12 +402,20 @@
     align-items: center;
     font-size: 14px;
     font-weight: 600;
+    padding-top: 4px;
+    padding-bottom: 10px;
 }
 
-#spec .accordion_container .fit_container > div > span{
-    display: block;
-    font-size: 14px;
+#spec .accordion_container .fit_container > div > p{
     text-align: center;
+}
+
+#spec .accordion_container .accordion .head .accordion_button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 /***************** 게이지바 *****************/
@@ -521,7 +553,7 @@
 }
 
 #checkpoint .checkpoint_header h2{
-    font-size: 26px;
+    font-size: 40px;
     font-weight: 700;
     color: #fff;
 }
@@ -530,13 +562,8 @@
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding-bottom: 16px;
+    padding: 0px 0px 30px 30px;
 }
-
-/*#checkpoint .checkpoint_card_container .card_container{*/
-/*    flex-shrink: 0;*/
-/*    width: 320px;*/
-/*}*/
 
 #checkpoint .checkpoint_card_container .card{
     width: 500px;
@@ -624,392 +651,397 @@
 #modelcut .modelcut_image{
     display: flex;
     gap: 40px;
+    padding: 0px 0px 30px 30px;
 }
 
-#modelcut .modelcut_image img{
+#modelcut .modelcut_image img {
     width: 500px;
     height: 700px;
     object-fit: cover;
+    flex-shrink: 0; /* 크기 줄어듦 방지 */
 }
 
 
+/* ==========================================================================
+   리뷰 영역 전체 레이아웃 정돈
+   ========================================================================== */
 
-/* ====================================================
-   * 리뷰
-   ==================================================== */
+#review {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
 
-#review h2{
-    font-size: 26px;
+#review h2 {
+    font-size: 28px;
     font-weight: 700;
-    color: #000;
-    margin-bottom: 20px;
-    padding-top: 50px;
+    color: #111;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
 }
 
-#review .review_write_button{
-    background-color: #000;
+/* 내 리뷰 작성하기 버튼 개선 */
+#review .review_write_button {
+    background-color: #111;
     color: #fff;
     border: none;
-    padding: 14px 120px;
-    font-size: 16px;
+    padding: 14px 40px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    margin-bottom: 40px;
 }
 
-/*#review .review_gauge_container{*/
-/*    padding-top: 20px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    text-align: center;*/
-/*}*/
+#review .review_write_button:hover {
+    background-color: #333;
+}
 
-#review .review_gauge_container{
-    padding-top: 20px;
+/* 구분선 레이아웃 정돈 */
+#review hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+/* --------------------------------------------------------------------------
+   리뷰 상단 대시보드 (게이지바 & 점수)
+   -------------------------------------------------------------------------- */
+
+#review .review_gauge_container {
     display: flex;
     align-items: center;
-    gap: 40px;
-    width: 100%;
+    gap: 50px;
+    background-color: #fafafa;
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;                    /* 가로 꽉 채우기 */
+    box-sizing: border-box;
 }
 
-/*#review .review_gauge_container .review_grade{*/
-/*    background-color: #ffffff;*/
-/*    width: 345px;*/
-/*    height: 120px;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    border-right: 1px solid #cccccc;*/
-/*}*/
-
-#review .review_gauge_container .review_grade{
+#review .review_gauge_container .review_grade {
     flex-shrink: 0;
-
-    width: 320px;
-    min-height: 160px;
-
+    width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     border-right: 1px solid #e5e5e5;
+    padding-right: 20px;
 }
 
-#review .review_gauge_container i{
-    color: #1140e7;
-    font-size: 40px;
-}
-
-#review .review_gauge_container span{
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1.5;
-}
-
-#review .review_gauge_container p{
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: #858585;
-}
-
-#review .review_gauge_container .emp{
-    color: #000000;
-}
-
-#review .review_gauge_container .review_guage span{
-    font-size: 16px;
-    font-weight: 600;
-}
-
-/* 1. 전체를 감싸는 컨테이너: Grid로 2칸짜리 레이아웃을 만듭니다 */
-/*.review_guage {*/
-/*    display: grid;*/
-/*    !* [수정] 왼쪽 텍스트(90px 고정) | 오른쪽 게이지+숫자 박스(남은 공간 전부) *!*/
-/*    grid-template-columns: 90px 1fr;*/
-/*    align-items: center;              !* 세로축 중앙 정렬 *!*/
-/*    row-gap: 6px;                    !* 줄과 줄 사이 간격 *!*/
-/*    column-gap: 16px;                 !* 텍스트와 게이지 사이 간격 *!*/
-
-/*    width: 100%;*/
-/*    max-width: 1000px;                 !* 게이지 영역 최대 너비 *!*/
-/*    margin: 0 auto;*/
-/*}*/
-
-#review .review_guage{
-    flex: 1;
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    align-items: center;
-    row-gap: 8px;
-    column-gap: 20px;
-    width: 100%;
-    padding-bottom: 20px;
-}
-
-/* 2. 왼쪽 평가 텍스트 (아주 좋아요, 맘에 들어요 등) */
-/*.review_guage > span {*/
-/*    font-size: 14px;*/
-/*    color: #555;*/
-/*    font-weight: 500;*/
-/*    white-space: nowrap;              !* 글자가 강제로 줄바꿈되는 것 방지 *!*/
-/*}*/
-
-#review .review_guage > span{
-    font-size: 15px;
-    font-weight: 600;
-    color: #444;
-    white-space: nowrap;
-}
-
-/* 3. 오른쪽 게이지 + 숫자가 함께 들어있는 컨테이너 박스 */
-/*.review_guage .rating_container {*/
-/*    display: flex;                    !* 내부에 있는 회색바와 숫자를 가로로 배치 *!*/
-/*    align-items: center;              !* 세로 중앙 정렬 *!*/
-/*    gap: 12px;                        !* 회색 바와 숫자 사이의 간격 *!*/
-/*    width: 100%;*/
-/*}*/
-
-#review .review_guage .rating_container{
+#review .review_grade_star {
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: 100%;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
-/* 4. 게이지 배경 바 (회색) */
-/*.review_guage .progress_bar_bg {*/
-/*    flex-grow: 1;                     !* 숫자를 제외한 남은 공간을 꽉 채우기 *!*/
-/*    height: 8px;                      !* 게이지 두께 *!*/
-/*    background-color: #f1f1f1;        !* 비어있는 바 색상 *!*/
-/*    border-radius: 4px;*/
-/*    overflow: hidden;                 !* 자식이 둥근 모서리 밖으로 넘치지 않게 *!*/
-/*}*/
+#review .review_gauge_container .review_grade_star i {
+    color: #002cff; /* 브랜드 포인트 컬러 */
+    font-size: 32px;
+}
 
-#review .review_guage .progress_bar_bg{
+#review .review_gauge_container .review_grade_star span {
+    font-size: 36px;
+    font-weight: 800;
+    color: #111;
+}
+
+#review .review_gauge_container p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin: 4px 0;
+}
+
+#review .review_gauge_container .emp {
+    color: #111;
+    font-weight: 700;
+}
+
+/* 게이지바 영역 */
+#review .review_guage {
     flex: 1;
-    height: 10px;
-    background-color: #f1f1f1;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    row-gap: 12px;
+    column-gap: 20px;
+}
+
+#review .review_guage > span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+#review .review_guage .rating_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#review .review_guage .progress_bar_bg {
+    flex: 1;
+    height: 8px;
+    background-color: #eaeaea;
     border-radius: 999px;
     overflow: hidden;
 }
 
-/* 5. 실제 채워지는 게이지 바 (검은색) */
-/*.review_guage .progress_bar_fill {*/
-/*    height: 100%;*/
-/*    background-color: #333;           !* 채워지는 색상 *!*/
-/*    border-radius: 4px;*/
-/*    transition: width 0.3s ease;*/
-/*}*/
-
-#review .review_guage .progress_bar_fill{
+#review .review_guage .progress_bar_fill {
     height: 100%;
-    background: linear-gradient(
-            90deg,
-            #1c1c1c 0%,
-            #9b9b9b 100%
-    );
+    background: #111;
     border-radius: 999px;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease-in-out;
 }
 
-/* 6. 오른쪽 끝 평점 숫자 텍스트 (1, 0 등) */
-/*.review_guage .rating_text {*/
-/*    font-size: 14px;*/
-/*    font-weight: 600;*/
-/*    color: #111;*/
-/*    min-width: 15px;                  !* 숫자가 차지할 최소 너비 확보해 정렬 유지 *!*/
-/*    text-align: right;*/
-/*}*/
-
-#review .review_guage .rating_text{
-    min-width: 16px;
-
+#review .review_guage .rating_text {
+    min-width: 20px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     color: #111;
-
     text-align: right;
 }
 
-/**************/
+/* --------------------------------------------------------------------------
+   필터 & 검색 영역
+   -------------------------------------------------------------------------- */
 
+#review .review_filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#review .review_filter_container {
+    display: flex;
+    gap: 24px;
+}
+
+#review .review_filter_container a {
+    font-size: 15px;
+    color: #888;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+/* 활성화 상태 예시 (최신순 등 강조) */
+#review .review_filter_container a:first-child {
+    color: #111;
+    font-weight: 700;
+}
+
+/* 검색창 정돈 */
 .review_search_box {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 300px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    width: 280px;
+    padding: 10px 14px;
+    border: 1px solid #e1e1e1;
+    border-radius: 6px;
     background-color: #fff;
+    transition: border-color 0.2s;
 }
 
-/* input 자체의 기본 테두리와 아웃라인을 제거 */
 .review_search_box input {
     border: none;
     outline: none;
     width: 100%;
     font-size: 14px;
+    color: #111;
 }
 
-/* 아이콘 색상 조절 */
+.review_search_box input::placeholder {
+    color: #bcc0c6;
+}
+
 .review_search_box i {
-    color: #888;
-    cursor: pointer;
+    color: #aaa;
+    margin-right: 10px;
+    font-size: 14px;
 }
 
-/* input이 클릭(focus)되었을 때 부모 박스의 테두리 변경 */
 .review_search_box:focus-within {
-    border-color: #007bff; /* 원하는 강조 색상 */
+    border-color: #111;
 }
 
-
-/******************************************/
-
-#review .review_filter{
+/* 상세 조건 필터 버튼 */
+#review .review_detail_filter {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-#review .review_filter_container {
-    display: flex;
-    gap: 20px;
-}
-
-#review .review_filter_container a{
-    font-size: 16px;
-    color: #414141;
-    text-decoration: none;
-}
-
-#review .review_search_box i{
-    padding-right: 10px;
-}
-
-/********************************/
-
-#review .review_detail_filter{
-    display: flex;
-    gap: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-#review .review_detail_filter button{
-    background-color: #ffffff;
-    border: none;
-    padding: 6px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    border: 1px solid #d5d5d5;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-#review .review_detail_filter i{
-    padding-left: 6px;
-    color: #a6a6a6;
-}
-
-/*********************************/
-#review .review_container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 80px;
-}
-
-
-#review .review_container .review{
-    padding-top: 40px;
-}
-
-#review .review_container .review > span{
-    font-size: 14px;
-    color: #000000;
+#review .review_detail_filter button {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    padding: 8px 16px;
+    font-size: 13px;
     font-weight: 500;
-    background-color: #d5d5d5;
-    padding: 4px 10px;
+    color: #444;
+    cursor: pointer;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+#review .review_detail_filter button:hover {
+    border-color: #111;
+    background-color: #fcfcfcfc;
+}
+
+#review .review_detail_filter i {
+    color: #999;
+    font-size: 11px;
+}
+
+/* --------------------------------------------------------------------------
+   리뷰 본문 리스트 영역 (핵심 변경 파트)
+   -------------------------------------------------------------------------- */
+
+#review .review_container {
+    display: flex;
+    justify-content: space-between; /* 왼쪽 내용과 오른쪽 작성자를 양끝으로 배치 */
+    align-items: flex-start;
+    width: 100%;                    /* 컨테이너 너비 100% */
+    gap: 40px;
+    padding: 40px 0;                /* 위아래 여백 정돈 */
+    border-bottom: 1px solid #eee;
+}
+
+/* 왼쪽: 리뷰 내용 */
+#review .review_container .review {
+    flex: 1;                        /* 남는 가로 공간을 다 채움 */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#review .review_container .review > span {
+    align-self: flex-start;
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
     border-radius: 4px;
 }
 
-#review .review_container .review .option{
+#review .review .option {
+    font-size: 13px;
+    color: #888;
+    margin: 0;
+}
+
+#review .review .review_star {
+    display: flex;
+    gap: 2px;
+    margin: 4px 0;
+}
+
+#review .review .review_star i {
+    color: #ffb800; /* 정통적인 골드 스타 색상 */
     font-size: 14px;
-    color: #000000;
-    background-color: #ffffff;
-    padding-top: 20px;
-    border-radius: 4px;
 }
 
-#review .review_container .review .review_star{
-    margin-top: 30px;
-    margin-bottom: 10px;
-
-}
-
-#review .review_container .review .review_star i{
-    color: #ffd700;
-    font-size: 16px;
-}
-
-#review .review_container .review .review_star p{
+#review .review .review_star p {
     font-size: 14px;
-    color: #000000;
+    color: #111;
     font-weight: 500;
 }
 
-#review .review_container .review .warning{
-    font-size: 14px;
-    border: unset;
-    margin-top: 20px;
-
+#review .review p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
 }
 
-#review .review_container .review .review_button > button{
-    color: #000000;
+/* 신고 및 차단 버튼 우아하게 숨기기 */
+#review .review .warning {
+    align-self: flex-start;
+    background: none;
     border: none;
-    padding: 6px 10px;
-    font-size: 16px;
+    color: #b3b3b3;
+    font-size: 12px;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
 }
 
-#review .review_container .review_writer{
-    margin-right: 300px;
+#review .review .warning:hover {
+    color: #ff3b30;
 }
 
-#review .review_container .review_writer .id{
+/* 도움돼요 / 댓글 버튼 그룹 */
+#review .review_button {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+#review .review_button > button {
+    background-color: #fff;
+    color: #444;
+    border: 1px solid #e1e1e1;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+#review .review_button > button:hover {
+    border-color: #111;
+    background-color: #111;
+    color: #fff;
+}
+
+/* 오른쪽: 작성자 정보 영역 고정 */
+#review .review_container .review_writer {
+    flex-shrink: 0;
+    width: 150px;                   /* 작성자 영역 너비 고정 */
+    text-align: right;              /* 텍스트 우측 정렬로 깔끔하게 */
+    font-size: 13px;
+    line-height: 1.8;
+    color: #666;
+    margin-right: 20px;                /* ★ 기존의 300px 마진을 0으로 초기화 */
+}
+
+#review .review_writer .id {
     font-size: 14px;
-    color: #000000;
+    color: #111;
     font-weight: 600;
-    line-height: 2.0;
 }
 
-#review .review_container .review_writer > b{
-    font-size: 14px;
-    color: #525252;
+#review .review_writer b {
+    font-weight: 500;
+    color: #888;
+}
+
+#review .review_writer .group {
+    color: #111;
     font-weight: 600;
-    line-height: 2.0;
+    padding-left: 4px;
 }
 
-#review .review_container .review_writer .group{
-    font-size: 14px;
-    color: #525252;
-    font-weight: 400;
-    padding-left: 10px;
-    line-height: 2.0;
-
-}
-
-#review .review_container .review_writer .date{
-    font-size: 14px;
-    color: #525252;
+#review .review_writer .date {
+    display: block;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 4px;
 }

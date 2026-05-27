@@ -305,7 +305,7 @@ header > nav > ul > li > .header_icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .item_list_page_button a {
@@ -314,15 +314,36 @@ header > nav > ul > li > .header_icon {
     align-items: center;
     text-decoration: none;
     color: #333;
-    width: 60px;
-    height: 30px;
+
+    /* 가로세로를 동일하게 고정하여 꿀렁임 원천 차단 */
+    width: 36px;
+    height: 36px;
+
+    /* 처음부터 원형 틀을 잡아둡니다 */
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: 500;
+    background-color: transparent;
+
+    /* 크기 변화 없이 '색상'만 부드럽게 바뀌도록 transition 제한 */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* 2. 활성화 상태 (검은색 원) */
 .item_list_page_button a.active {
     background-color: #000000;
-    color: #fff;
-    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    /* 이미 부모가 원형이므로 border-radius를 따로 넣지 않아 모양 유지가 완벽합니다 */
 }
+
+/* 3. 마우스 호버 상태 (연한 회색 원) */
+.item_list_page_button a:hover:not(.active) {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
 
 /* ==========================================================================
    4. 푸터 영역 (Footer)

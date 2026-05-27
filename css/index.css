@@ -7,7 +7,6 @@
     --main-y-padding: 20px;
 }
 
-/* 공통 화살표 버튼 */
 .arrow_button {
     color: black;
     border: 1px solid #afafaf;
@@ -60,39 +59,43 @@
     cursor: pointer;
 }
 
-/* 헤더 영역 */
+/* ==========================================================================
+   2-1. Header reset
+   ========================================================================== */
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   2-2. header
+   ========================================================================== */
+
 header {
     position: absolute;
     top: 30px;
+    left: 0;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    background-color: transparent;
     align-items: center;
-    padding: var(--main-y-padding) var(--main-x-padding);
+    background-color: none;
+    padding: 10px 40px;
+    z-index: 1000;
 }
 
-header > .main_menu {
+header > .home_btn {
     display: flex;
-}
-
-header > .main_menu > li {
-    padding: 4px 8px;
-    cursor: pointer;
-}
-
-header > .main_menu > li > a {
-    text-decoration: none;
-    font-size: 20px;
-    color: #ffffff;
-    padding: 10px 0;
-    transition: border-color 0.2s;
-    font-weight: 500;
-}
-
-header > .main_menu > li > a:hover {
-    border-bottom: 2px solid white;
+    align-items: center;
+    z-index: 10;
 }
 
 header > .home_btn > img {
@@ -100,34 +103,217 @@ header > .home_btn > img {
     height: 60px;
 }
 
+header > nav {
+    z-index: 10;
+}
+
 header > nav > ul {
     display: flex;
+    gap: 10px;
 }
 
 header > nav > ul > li > .header_icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
     color: white;
     padding: 4px 10px;
     font-size: 24px;
 }
 
+/* ==========================================================================
+   2-3. main_menu
+   ========================================================================== */
+
+header > .main_menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    pointer-events: none;
+    /* 호버 시 배경색 통일을 위해 transition 추가 */
+    transition: background-color 0.3s ease;
+}
+
+header > .main_menu > li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+}
+
+header > .main_menu > li > a.menu_link {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+header:hover > .main_menu {
+    background-color: #ffffff;
+    pointer-events: auto;
+}
+
+header:hover > .main_menu > li > a.menu_link {
+    color: #000000;
+}
+
+header > .main_menu > li:hover > a.menu_link {
+    color: #999999;
+    border-bottom: 2px solid #999999;
+}
+
+header:hover nav ul li .header_icon {
+    color: #000000;
+}
+
+header:hover .home_btn > img {
+    filter: brightness(0);
+}
+
+/* ==========================================================================
+   2-4. sub_menu
+   ========================================================================== */
+
+.submenu_container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 40px 80px;
+    z-index: 999;
+}
+
+.submenu_container > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.submenu_title {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.submenu a {
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.submenu a:hover {
+    color: #000;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   2-5. 호버 액션
+   ========================================================================== */
+
+header > .main_menu > li:hover .submenu_container {
+    display: flex;
+}
 
 /* ==========================================================================
    3. 메인 콘텐츠 섹션들 (Main Sections)
    ========================================================================== */
 
-main > .hero_section > video {
+/* 히어로 섹션 + 캐러셀 */
+
+.embla{
+    position: relative;
     width: 100%;
-    height: 100vh;
-    object-fit: cover;
+    height: 950px;
 }
 
+.embla .embla__viewport .embla__container .embla__slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 950px;
+}
+
+.embla__slide video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.embla__viewport {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.embla__prev,
+.embla__next {
+    position: absolute;
+    bottom: 40px;
+    z-index: 10;
+    padding: 8px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: background 0.3s;
+    color: black;
+    padding: 14px 40px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+.embla__prev:hover,
+.embla__next:hover {
+    background: rgb(255 255 255 / 0.8);
+}
+
+.embla__prev {
+    right: 114px;
+}
+
+.embla__next {
+    right: 20px;
+}
+
+
 /* 트렌딩 섹션 (Trending Now) */
+
 .trending_section {
     padding: var(--main-y-padding) var(--main-x-padding);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .trending_section > h2 {
@@ -136,19 +322,20 @@ main > .hero_section > video {
     padding: 80px 20px 10px 10px;
 }
 
-.trending_section > div {
+.trending_section .trending_section_items {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.trending_section > div > ul {
+.trending_section .trending_section_items > ul {
     display: flex;
     flex: 1;
     margin: 16px 0;
 }
 
-main .trending_section > div > ul > li > button {
+main .trending_section .trending_section_items > ul > li > button {
     background: unset;
     border: none;
     color: #9c9c9c;
@@ -158,43 +345,61 @@ main .trending_section > div > ul > li > button {
     font-weight: bold;
 }
 
-main .trending_section button.active {
+main .trending_section .trending_section_items button.active {
     font-weight: bold;
     color: #000;
     text-decoration: underline;
     text-underline-offset: 8px;
 }
 
-main .trending_section button:hover {
+main .trending_section .trending_section_items button:hover {
     color: #000;
 }
 
-.trending_section .arrow_button:hover {
+.trending_section .trending_section_items .arrow_button:hover {
     background-color: #000;
     color: #fff;
 }
 
-.trending_section > ul {
-    display: flex;
-    gap: 15px;
+.trending_section .product_list {
+    display: none;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
 }
 
-.trending_section > ul > li {
-    flex: 1;
+.trending_section .product_list::-webkit-scrollbar {
+    display: none;
+}
+
+.trending_section .product_list.active {
+    display: flex;
+}
+
+.trending_section .product_list > li {
+    flex: 0 0 23%;
+    min-width: 23%;
+}
+
+.trending_section .image_container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 }
 
 .trending_section .image_container > img {
     width: 100%;
+    height: 100%;
     margin-bottom: 10px;
+    object-fit: cover;
 }
 
-.trending_section > ul > li > a {
+.trending_section .product_list > li > a {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100%;
     text-decoration: none;
-    padding: 10px;
 }
 
 .trending_section .tag {
@@ -217,7 +422,21 @@ main .trending_section button:hover {
     margin-bottom: 80px;
 }
 
+.trending_section .image_container {
+    overflow: hidden; /* 영역 밖으로 나가는 이미지 가리기 */
+}
+
+.trending_section .image_container img {
+    transition: transform 0.5s ease;
+}
+
+.trending_section .product_list li:hover img {
+    transform: scale(1.05); /* 5%만 확대 */
+}
+
+
 /* 필라 에디트 섹션 (Fila Edit) */
+
 .edit_section {
     position: relative;
     display: flex;
@@ -275,6 +494,8 @@ main .trending_section button:hover {
 }
 
 .edit_section > .label_container a {
+    position: relative;
+    display: inline-block;
     font-size: 48px;
     font-weight: 400;
     color: white;
@@ -284,6 +505,22 @@ main .trending_section button:hover {
 .edit_section > .label_container a::after {
     content: ",";
     color: white;
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.edit_section > .label_container a:hover::after {
+    width: 100%;
+}
+
+.edit_section > .label_container a:hover {
+    text-decoration-color: #000;
 }
 
 .edit_section > .label_container a:last-child::after {
@@ -291,6 +528,7 @@ main .trending_section button:hover {
 }
 
 /* 인포메이션 섹션 1 */
+
 .informational_section > h2 {
     font-size: 100px;
     font-weight: 600;
@@ -339,6 +577,7 @@ main .trending_section button:hover {
 }
 
 /* 인포메이션 섹션 2 */
+
 .informational_section2 {
     background-color: #983b3b;
     display: flex;
@@ -390,37 +629,44 @@ main .trending_section button:hover {
 }
 
 /* Featured Collection 섹션 */
+
+/*.collection_section {*/
+/*    width: 100%;*/
+/*    padding: 20px;*/
+/*    box-sizing: border-box;*/
+/*    overflow: hidden;*/
+/*}*/
+
+
 .collection_section_wrapper {
-    /*width: 100%;*/
+    width: 100%;
     position: relative;
     height: 600px;
+    overflow: hidden;
 }
 
 .collection_section .collection_section_item {
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    top: 0;
     display: flex;
-    flex-wrap: nowrap;
+    justify-content: center;
     gap: 20px;
-    height: inherit;
+    height: 100%;
+    transition: transform 0.5s ease;
 }
 
 .collection_section .collection_section_item > a {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    width: 1200px;
+    flex: 0 0 1200px;
+    max-width: 90vw;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     text-decoration: none;
-    padding-bottom: 20px;
-    padding-left: 10px;
+    padding: 0 0 40px 40px;
     box-sizing: border-box;
     filter: brightness(0.7);
-
+    transition: filter 0.3s ease;
     &.active {
         filter: brightness(1);
     }
@@ -443,34 +689,36 @@ main .trending_section button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 100px 0 60px 0;
+    padding: 100px 20px; 60px 0;
 }
 
 .collection_section .collection_section_header > h2 {
     font-size: 80px;
     font-weight: 600;
     margin: 0;
+    /*padding: 20px;*/
 }
 
-
-
 /* 인포메이션 섹션 3 (Shop the Look 슬라이더) */
+
 .informational_section3 {
     background-color: #000000;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 1100px;
+    /* height를 고정하기보다 내부 콘텐츠에 맞게 조절하는 것이 안정적입니다 */
+    min-height: 900px;
     margin-top: 30px;
-    padding: 0 40px;
+    padding: 0 0 0 40px; /* 오른쪽 패딩을 0으로 해서 사진이 끝까지 닿게 함 */
     box-sizing: border-box;
+    overflow-x: hidden; /* 섹션 밖으로 나가는 슬라이더 숨김 */
 }
 
 .informational_section3 .informational_section3_header {
+    padding: 80px 30px 40px 0px;
     display: flex;
+    text-align: center;
     justify-content: space-between;
-    align-items: flex-end;
-    padding: 100px 0 60px 0;
 }
 
 .informational_section3 .informational_section3_header > h2 {
@@ -481,41 +729,90 @@ main .trending_section button:hover {
 }
 
 .informational_section3 .informational_section3_header .arrow_button {
-    padding: 20px 60px;
-    background: whitesmoke;
-    border: 1px solid #ffffff;
-    color: black;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    gap: 5px;
-    margin-bottom: 10px;
+    position: relative;
+    padding: 15px 45px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    overflow: hidden;
+    transition: color 0.4s;
+    z-index: 1;
+}
+
+.informational_section3 .informational_section3_header .arrow_button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 100%;
+    background: #ffffff; /* 흰색이 슥 차오름 */
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+}
+
+.informational_section3 .informational_section3_header .arrow_button:hover::before {
+    width: 100%;
+}
+
+.informational_section3 .informational_section3_header .arrow_button:hover {
+    color: #000000; /* 글자는 검정으로 반전 */
+    border-color: #ffffff;
+}
+
+/* 4. 제목 글자 애니메이션 (옵션) */
+.informational_section3 .informational_section3_header > h2 {
+    letter-spacing: -2px; /* 글자 간격을 좁히면 더 트렌디함 */
 }
 
 .informational_section3 .slide_container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
+    overflow-x: auto; /* 휠 스크롤을 위해 auto 유지 */
+    scrollbar-width: none; /* 파이어폭스용 */
+    -ms-overflow-style: none; /* IE용 */
+    cursor: grab;
+    user-select: none;
+    padding: 20px 40px 60px 0;
+    scroll-behavior: smooth;
+}
+
+.informational_section3 .slide_container::-webkit-scrollbar {
+    display: none;
+}
+
+.informational_section3 .slide_container:active {
+    cursor: grabbing;
+    /* transition: transform 제거 (꿀렁거림의 원인) */
 }
 
 .informational_section3 .slide_container > li {
-    flex-basis: 500px;
-    flex-shrink: 0;
+    flex: 0 0 450px; /* 크기 고정 */
+    height: 600px;  /* 높이 통일 */
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px; /* 브랜드 컨셉에 따라 조정 */
+    transition: transform 0.3s ease;
 }
 
 .informational_section3 .slide_container > li:not(:last-child) {
     margin-right: 24px;
 }
 
-.informational_section3 .slide_container > li > img {
+.informational_section3 .slide_container > li img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 이미지가 잘리더라도 영역을 꽉 채워 크기 통일 */
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: brightness(0.9);
+    display: block; /* 하단 미세 공백 제거 */
+}
+
+.informational_section3 .slide_container > li:hover img {
+    transform: scale(1.05); /* 너무 과한 확대는 버벅여 보일 수 있어 1.05로 조절 */
+    filter: brightness(1);
 }
 
 /* 파라그래프 텍스트/이미지 분리 섹션 */
+
 .paragraph_section {
     width: 100%;
     padding: 60px 0;
@@ -549,7 +846,7 @@ main .trending_section button:hover {
 }
 
 .paragraph_section .paragraph_img_container > img {
-    width: 45%; /* 이미지가 너무 거대해지지 않도록 유연하게 조절 */
+    width: 45%;
     height: auto;
     object-fit: cover;
 }
@@ -558,6 +855,7 @@ main .trending_section button:hover {
 /* ==========================================================================
    4. 푸터 영역 (Footer)
    ========================================================================== */
+
 footer {
     background-color: black;
     color: #ececec;
@@ -601,6 +899,7 @@ footer .site_nav li a {
 }
 
 /* SNS 영역 및 아이콘 컬러 픽스 */
+
 footer .sns_nav ul {
     display: flex;
     margin-bottom: 12px;
@@ -646,3 +945,5 @@ footer hr {
     text-align: right;
     color: #ececec;
 }
+
+

@@ -16,7 +16,7 @@ for (let i = 0; i < mainMenuLis.length; i++) {
         }
     };
 }
-윤슬
+
 header.onmouseleave = () => {
     let subMenuContainers = document.querySelectorAll('.submenu_container');
     for (let i = 0; i < subMenuContainers.length; i++) {

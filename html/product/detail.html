@@ -39,7 +39,7 @@
                     </ul>
                 </div>
 
-                <div class="accordion">
+                <div class="accordion_size">
                     <div class="head">
                         <span>사이즈 선택</span>
                         <i class="fa-solid fa-caret-down"></i>
@@ -85,59 +85,49 @@
                     <div class="accordion">
                         <div class="head">
                             <b>멤버쉽 혜택</b>
-                            <i class="fa-solid fa-caret-down"></i>
+                            <button class="accordion_button">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
                         </div>
                         <div class="body membership">
                             <ul>
-                                <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>신규회원 10,000원 할인 쿠폰</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>첫 구매 30일 후 10,000원 재구매 쿠폰</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>카카오톡 채널 추가 시 10% 할인 쿠폰</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>리뷰 작성 시 최대 30,000P 적립</span>
-                                </li>
+                                <li><i class="fa-solid fa-check"></i> <span>신규회원 10,000원 할인 쿠폰</span></li>
+                                <li><i class="fa-solid fa-check"></i> <span>첫 구매 30일 후 10,000원 재구매 쿠폰</span></li>
+                                <li><i class="fa-solid fa-check"></i> <span>카카오톡 채널 추가 시 10% 할인 쿠폰</span></li>
+                                <li><i class="fa-solid fa-check"></i> <span>리뷰 작성 시 최대 30,000P 적립</span></li>
                             </ul>
                         </div>
                     </div>
-                </div>
 
-                <div class="accordion_container">
                     <div class="accordion">
                         <div class="head">
                             <b>제품 상세</b>
-                            <i class="fa-solid fa-caret-down"></i>
+                            <button class="accordion_button">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
                         </div>
                         <div class="body product_information">
-                            <div>
+                            <div class="info_row">
                                 <span>제품소재</span>
                                 <span>겉감1: 면 65%, 나일론 35%, 겉감2: 면 65%, 나일론 35%</span>
                             </div>
-                            <div>
+                            <div class="info_row">
                                 <span>사이즈</span>
                                 <span>M(085), L(090), XL(095), 2XL(100)</span>
                             </div>
-                            <div>
+                            <div class="info_row">
                                 <span>제조자</span>
-                                <span>미스토코리아(주)(미스토코리아(주))</span>
+                                <span>미스토코리아(주)</span>
                             </div>
-                            <div>
+                            <div class="info_row">
                                 <span>제조국</span>
                                 <span>베트남</span>
                             </div>
-                            <div>
+                            <div class="info_row">
                                 <span>제조년월</span>
                                 <span>202601</span>
                             </div>
-                            <div>
+                            <div class="info_row">
                                 <span>세탁방법</span>
                                 <span>상세 취급방법 제품라벨 참조</span>
                             </div>
@@ -147,25 +137,27 @@
                     <div class="accordion">
                         <div class="head">
                             <b>핏 & 스펙 가이드</b>
-                            <i class="fa-solid fa-caret-down"></i>
+                            <button class="accordion_button">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
                         </div>
                         <div class="body fit_spec_guide">
                             <div class="fit_container">
-                                <div>
-                                    <span class="fit_style">SLIM</span><br>
-                                    <span>부담스럽지 않게 날씬해 보이는 효과를 주는 핏</span>
+                                <div class="fit_item">
+                                    <span class="fit_style">SLIM</span>
+                                    <p>부담스럽지 않게 날씬해 보이는 효과를 주는 핏</p>
                                 </div>
-                                <div>
-                                    <span class="fit_style">STANDARD</span><br>
-                                    <span>가장 기본적이고 깔끔한, 조금 여유있는 실루엣의 핏</span>
+                                <div class="fit_item">
+                                    <span class="fit_style">STANDARD</span>
+                                    <p>가장 기본적이고 깔끔한, 조금 여유있는 실루엣의 핏</p>
                                 </div>
-                                <div>
-                                    <span class="fit_style">SEMI-OVER</span><br>
-                                    <span>편안하고 루즈한 실루엣의 핏</span>
+                                <div class="fit_item">
+                                    <span class="fit_style">SEMI-OVER</span>
+                                    <p>편안하고 루즈한 실루엣의 핏</p>
                                 </div>
-                                <div>
-                                    <span class="fit_style">OVER</span><br>
-                                    <span>자연스러운 스트릿무드의 전체적으로 넉넉한 핏</span>
+                                <div class="fit_item">
+                                    <span class="fit_style">OVER</span>
+                                    <p>자연스러운 스트릿무드의 전체적으로 넉넉한 핏</p>
                                 </div>
                             </div>
 
@@ -173,40 +165,27 @@
                                 <div class="spec">
                                     <b>신축성</b>
                                     <div class="progress_container">
-                                        <div class="progress parent">
-                                            <div class="progress child"></div>
-                                        </div>
-                                        <div>
-                                            <span>없음</span>
-                                            <span>보통</span>
-                                            <span>좋음</span>
+                                        <div class="progress parent"><div class="progress child" style="width: 50%;"></div></div>
+                                        <div class="progress_labels">
+                                            <span>없음</span><span>보통</span><span>좋음</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="spec">
                                     <b>두께감</b>
                                     <div class="progress_container">
-                                        <div class="progress parent">
-                                            <div class="progress child"></div>
-                                        </div>
-                                        <div>
-                                            <span>없음</span>
-                                            <span>보통</span>
-                                            <span>좋음</span>
+                                        <div class="progress parent"><div class="progress child" style="width: 30%;"></div></div>
+                                        <div class="progress_labels">
+                                            <span>얇음</span><span>보통</span><span>두꺼움</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="spec">
                                     <b>계절감</b>
                                     <div class="progress_container">
-                                        <div class="progress parent">
-                                            <div class="progress child"></div>
-                                        </div>
-                                        <div>
-                                            <span>봄·가을</span>
-                                            <span>여름</span>
-                                            <span>겨울</span>
-                                            <span>사계절</span>
+                                        <div class="progress parent"><div class="progress child" style="width: 100%;"></div></div>
+                                        <div class="progress_labels">
+                                            <span>봄·가을</span><span>여름</span><span>겨울</span><span>사계절</span>
                                         </div>
                                     </div>
                                 </div>
@@ -322,35 +301,35 @@
                 <span>아주 좋아요</span>
                 <div class="rating_container">
                     <div class="progress_bar_bg">
-                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                        <div class="progress_bar_fill" style="width: 100%;"></div>
                     </div>
                     <span class="rating_text">1</span>
                 </div>
                 <span>맘에 들어요</span>
                 <div class="rating_container">
                     <div class="progress_bar_bg">
-                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                        <div class="progress_bar_fill" style="width: 0%;"></div>
                     </div>
                     <span class="rating_text">0</span>
                 </div>
                 <span>보통이에요</span>
                 <div class="rating_container">
                     <div class="progress_bar_bg">
-                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                        <div class="progress_bar_fill" style="width: 0%;"></div>
                     </div>
                     <span class="rating_text">0</span>
                 </div>
                 <span>그냥 그래요</span>
                 <div class="rating_container">
                     <div class="progress_bar_bg">
-                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                        <div class="progress_bar_fill" style="width: 0%;"></div>
                     </div>
                     <span class="rating_text">0</span>
                 </div>
                 <span>별로에요</span>
                 <div class="rating_container">
                     <div class="progress_bar_bg">
-                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                        <div class="progress_bar_fill" style="width: 0%;"></div>
                     </div>
                     <span class="rating_text">0</span>
                 </div>
@@ -512,3 +491,53 @@
 </footer>
 </body>
 </html>
+
+
+<script>
+    const sizeBtns = document.querySelectorAll('.accordion_size .body > button');
+
+    sizeBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // 버튼 클릭이 부모인 아코디언 헤더로 전달되어 아코디언이 닫히는 것 방지
+            e.stopPropagation();
+
+            // 1. 모든 버튼에서 selected 클래스 제거
+            sizeBtns.forEach(b => b.classList.remove('selected'));
+
+            // 2. 클릭한 버튼에만 selected 클래스 추가
+            this.classList.add('selected');
+        });
+    });
+
+    // 아코디언 열고 닫기 로직
+    const accordionSizeHead = document.querySelector('.accordion_size .head');
+    if(accordionSizeHead) {
+        accordionSizeHead.addEventListener('click', () => {
+            // parentElement가 .accordion_size인지 확인 후 active 토글
+            accordionSizeHead.parentElement.classList.toggle('active');
+        });
+    }
+
+<!--아코디언_펼치기, 닫기 효과-->
+    const accordionHeads = document.querySelectorAll('.accordion > .head');
+
+    accordionHeads.forEach((head) => {
+        head.addEventListener('click', () => {
+            const accordion = head.parentElement;
+            const body = accordion.querySelector('.body');
+            const icon = head.querySelector('i');
+
+            const isActive = accordion.classList.contains('active');
+
+            if (!isActive) {
+                accordion.classList.add('active');
+                body.style.display = 'block';
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                accordion.classList.remove('active');
+                body.style.display = 'none';
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    });
+</script>
