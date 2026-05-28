@@ -947,3 +947,222 @@ footer hr {
 }
 
 
+
+/*@media screen and (max-width: 1024px) {}*/
+
+/*@media screen and (max-width: 768px) {*/
+/*    .edit_section .image_container > div{*/
+/*        display: flex;*/
+/*        & > img{*/
+/*            position: relative;*/
+/*            flex: 1;*/
+/*        }*/
+/*    }*/
+/*}*/
+
+/*@media screen and (max-width: 480px) {}*/
+
+
+/* ==========================================================================
+   4. 반응형 스타일 (Responsive Design) - 768px 이하 모바일/태블릿
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+    /* 2-2. 헤더 조정 */
+    header {
+        padding: 10px 20px;
+        top: 30px;
+    }
+
+    header > .main_menu {
+        display: none; /* 모바일에서는 보통 햄버거 메뉴로 대체하거나 숨깁니다 */
+    }
+
+    header > .home_btn > img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 3. 히어로 섹션 높이 조절 */
+    .embla,
+    .embla .embla__viewport .embla__container .embla__slide {
+        height: 600px; /* 모바일에서는 높이를 줄임 */
+    }
+
+    .embla__prev, .embla__next {
+        padding: 10px 40px;
+        bottom: 20px;
+    }
+
+    /* 4. 트렌딩 섹션 상품 리스트 */
+    .trending_section > h2 {
+        font-size: 30px;
+        padding: 40px 10px 10px 10px;
+    }
+
+    .trending_section .trending_section_items > div > ul > li{
+        font-size: 10px;
+    }
+
+    .trending_section .product_list > li {
+        flex: 0 0 48%; /* 모바일에서는 2열 배치 */
+        min-width: 48%;
+    }
+
+    .trending_section .title {
+        font-size: 16px;
+    }
+
+    .trending_section .arrow_button_container .arrow_button {
+        display: none;
+    }
+
+    /* 필라 에디트 섹션 조정 */
+    .edit_section {
+        flex-direction: column; /* 세로 배치 */
+        padding: 40px 20px;
+    }
+
+    .edit_section > h2 {
+        font-size: 120px;
+        z-index: 10;
+    }
+
+    .edit_section img.main {
+        width: 100%;
+    }
+
+    .edit_section > .label_container {
+        display: flex;
+        flex: 1;
+        flex-direction: flex;
+        gap: 20px;
+        padding-left: 0;
+        z-index: 2;
+    }
+
+    .edit_section > .label_container a {
+        font-size: 30px;
+        display: block;
+        text-align: center;
+    }
+
+    /* 인포메이션 섹션 (그리드 조정) */
+    .informational_section > h2 {
+        font-size: 40px;
+        padding: 60px 10px 30px 10px;
+    }
+
+    .informational_section > div {
+        grid-template-columns: 1fr; /* 1열 배치 */
+    }
+
+    .informational_section > div > a {
+        height: 500px;
+    }
+
+    .informational_section .information > h3 {
+        font-size: 30px;
+    }
+
+    .informational_section .information > p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .collection_section .collection_section_header{
+        padding: 30px 0 20px 20px;
+    }
+
+    .collection_section .collection_section_header > h2{
+        font-size: 60px;
+    }
+
+    .collection_section .collection_section_header > div{
+        display: none;
+    }
+
+    .informational_section3 .informational_section3_header > h2 {
+        font-size: 60px;
+    }
+
+    .informational_section3 .informational_section3_header > button{
+        display: none;
+    }
+
+    .paragraph_section > div > b{
+        font-size: 28px;
+    }
+
+    .paragraph_section > div > p{
+        font-size: 20px;
+    }
+
+        /* 푸터 사이트 네비게이션 */
+
+    /* ==========================================================================
+       푸터 반응형 스타일 (768px 이하)
+       ========================================================================== */
+
+    @media screen and (max-width: 768px) {
+        footer {
+            padding: 40px 20px; /* 좌우 여백 축소 */
+        }
+
+        /* 1. 상단 섹션: 메뉴와 SNS/정보 영역을 세로로 배치 */
+        footer > div:first-of-type {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* 2. 사이트 네비게이션 (Corporate, Partnership 등) */
+        footer .site_nav {
+            flex-direction: column; /* 메뉴 덩어리들을 세로로 */
+            gap: 30px;
+        }
+
+        footer .site_nav > div {
+            width: 100%; /* 너비를 꽉 채움 */
+        }
+
+        footer .site_nav h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333; /* 모바일에서 구분선 추가 (선택사항) */
+            padding-bottom: 8px;
+        }
+
+        /* 3. SNS 및 연락처 정보 영역 */
+        footer .sns_nav ul {
+            justify-content: flex-start; /* 왼쪽 정렬 혹은 center */
+            margin-bottom: 20px;
+        }
+
+        footer .me_information {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 4. 하단 카피라이트 및 기업 정보 영역 */
+        footer > div:last-of-type {
+            flex-direction: column; /* 기업정보와 사이트공지를 세로로 */
+            gap: 20px;
+            text-align: left; /* 모바일에서는 왼쪽 정렬이 가독성이 좋음 */
+        }
+
+        .corp_information {
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .corp_information span {
+            display: block; /* 정보를 한 줄씩 나오게 하여 줄바꿈 최적화 */
+            margin-bottom: 4px;
+        }
+
+        .site_information {
+            text-align: left; /* 오른쪽 정렬되어 있던 것을 왼쪽으로 */
+            font-size: 12px;
+            color: #999; /* 공지사항은 약간 흐리게 처리 */
+        }
+    }
