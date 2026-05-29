@@ -803,7 +803,7 @@
             </div>
             <div class="collection_section_wrapper">
                 <div class="collection_section_item">
-                    <a href="#" style="background-image: url('../image/collection1.jpg');">
+                    <a href="#" style="background-image: url('./image/collection1.jpg');">
                         <div>
                             <h3>26SS<br>The Court Is Yours</h3>
                             <p>
@@ -811,7 +811,7 @@
                             </p>
                         </div>
                     </a>
-                    <a href="#" class="active" style="background-image: url('../image/collection2.jpg');">
+                    <a href="#" class="active" style="background-image: url('./image/collection2.jpg');">
                         <div>
                             <h3>ILLIT's Cozy Prep</h3>
                             <p>
@@ -1136,6 +1136,32 @@
     let isDown = false;
     let startX;
     let scrollLeft;
+    let isPaused = false; // 자동 흐름 일시정지 상태 변수
+
+    // --- 자동 흐름 관련 설정 ---
+    let scrollSpeed = 1; // 흐르는 속도 (숫자가 클수록 빠름)
+    let animationId;
+
+    function autoPlay() {
+        if (!isDown && !isPaused) {
+            const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+            // 현재 위치가 끝부분이면 0으로, 아니면 이동
+            if (slider.scrollLeft >= maxScrollLeft - 1) {
+                slider.scrollLeft = 0;
+            } else {
+                slider.scrollLeft += scrollSpeed;
+            }
+        }
+        animationId = requestAnimationFrame(autoPlay);
+    }
+    // 자동 흐름 시작
+    autoPlay();
+
+    // 마우스를 올리면 자동 흐름 정지, 떼면 다시 시작
+    slider.addEventListener('mouseenter', () => isPaused = true);
+    slider.addEventListener('mouseleave', () => isPaused = false);
+    // -----------------------
 
     // 이미지/요소의 기본 드래그 동작 차단
     slider.addEventListener('dragstart', (e) => {
@@ -1144,7 +1170,6 @@
 
     // 1. 마우스 클릭 시 (드래그 시작)
     slider.addEventListener('mousedown', (e) => {
-        // 좌클릭(버튼 0)만 허용
         if (e.button !== 0) return;
         isDown = true;
         slider.classList.add('active');
@@ -1162,29 +1187,22 @@
         isDown = false;
         slider.classList.remove('active');
         slider.style.cursor = 'grab';
-        slider.style.scrollBehavior = 'smooth';
+        // 드래그 종료 후 다시 부드럽게 움직이도록 설정
     });
 
-    // 브라우저 포커스가 돌아왔을 때도 드래그 상태 초기화
-    // (다른 탭/창으로 이동 후 돌아온 경우 처리)
     window.addEventListener('blur', () => {
         if (!isDown) return;
-
         isDown = false;
         slider.classList.remove('active');
         slider.style.cursor = 'grab';
-        slider.style.scrollBehavior = 'smooth';
     });
 
     // 3. 마우스 이동 시 (드래그 동작)
     window.addEventListener('mousemove', (e) => {
-        // [핵심 수정] isDown 체크 + e.buttons로 실제 마우스 버튼 상태 이중 검증
-        // e.buttons === 0 이면 아무 버튼도 안 눌린 것 → 강제로 드래그 종료
         if (e.buttons === 0 && isDown) {
             isDown = false;
             slider.classList.remove('active');
             slider.style.cursor = 'grab';
-            slider.style.scrollBehavior = 'smooth';
             return;
         }
 
@@ -1196,13 +1214,6 @@
         slider.scrollLeft = scrollLeft - walk;
     });
 
-    // 4. 휠 스크롤 가로 전환
-    slider.addEventListener('wheel', (e) => {
-        if (e.deltaY !== 0) {
-            e.preventDefault();
-            slider.style.scrollBehavior = 'smooth';
-            slider.scrollLeft += e.deltaY;
-        }
-    }, { passive: false });
+    // 기존 휠 이벤트는 삭제하거나 주석 처리하셔도 됩니다.
 
 </script>

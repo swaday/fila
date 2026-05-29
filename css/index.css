@@ -87,7 +87,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: none;
+    background-color: unset;
     padding: 10px 40px;
     z-index: 1000;
 }
@@ -284,13 +284,12 @@ header > .main_menu > li:hover .submenu_container {
     z-index: 10;
     padding: 8px 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
+    pointer: cursor;
     transition: background 0.3s;
     color: black;
     padding: 14px 40px;
     border-radius: 50px;
     background-color: rgba(255, 255, 255, 0.6);
-    cursor: pointer;
 }
 
 .embla__prev:hover,
@@ -403,13 +402,13 @@ main .trending_section .trending_section_items button:hover {
 }
 
 .trending_section .tag {
-    padding: 8px 0px;
+    padding: 8px 0;
     color: #5f5e5e;
     font-size: 14px;
 }
 
 .trending_section .title {
-    padding: 0px 0px 8px 0px;
+    padding: 0 0 8px 0;
     font-size: 20px;
     font-weight: 600;
     color: #000;
@@ -649,7 +648,9 @@ main .trending_section .trending_section_items button:hover {
     display: flex;
     justify-content: center;
     gap: 20px;
-    height: 100%;
+    height: 100%; /* 부모 wrapper의 800px을 그대로 물려받음 */
+    margin: 0;    /* 혹시 모를 마진 제거 */
+    padding: 0;   /* 패딩 제거 */
     transition: transform 0.5s ease;
 }
 
@@ -659,6 +660,10 @@ main .trending_section .trending_section_items button:hover {
     justify-content: flex-end;
     flex: 0 0 1200px;
     max-width: 90vw;
+
+    /* 핵심 수정 부분: auto 대신 100% 사용 */
+    height: 100%;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -667,9 +672,6 @@ main .trending_section .trending_section_items button:hover {
     box-sizing: border-box;
     filter: brightness(0.7);
     transition: filter 0.3s ease;
-    &.active {
-        filter: brightness(1);
-    }
 }
 
 .collection_section .collection_section_item > a h3 {
@@ -689,7 +691,7 @@ main .trending_section .trending_section_items button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 100px 20px; 60px 0;
+    padding: 100px 20px 60px 0;
 }
 
 .collection_section .collection_section_header > h2 {
@@ -715,7 +717,7 @@ main .trending_section .trending_section_items button:hover {
 }
 
 .informational_section3 .informational_section3_header {
-    padding: 80px 30px 40px 0px;
+    padding: 80px 30px 40px 0;
     display: flex;
     text-align: center;
     justify-content: space-between;
@@ -772,7 +774,6 @@ main .trending_section .trending_section_items button:hover {
     cursor: grab;
     user-select: none;
     padding: 20px 40px 60px 0;
-    scroll-behavior: smooth;
 }
 
 .informational_section3 .slide_container::-webkit-scrollbar {
@@ -789,7 +790,7 @@ main .trending_section .trending_section_items button:hover {
     height: 600px;  /* 높이 통일 */
     overflow: hidden;
     position: relative;
-    border-radius: 0px; /* 브랜드 컨셉에 따라 조정 */
+    border-radius: 0; /* 브랜드 컨셉에 따라 조정 */
     transition: transform 0.3s ease;
 }
 
@@ -947,20 +948,145 @@ footer hr {
 }
 
 
+/* ==========================================================================
+      4. 반응형 스타일 (Responsive Design) - 태블릿 및 소형 노트북 (max-width: 1024px) 대응
+   ========================================================================== */
 
-/*@media screen and (max-width: 1024px) {}*/
+@media (max-width: 1024px) {
+    /* 1. 헤더 및 네비게이션 조절 */
+    header {
+        padding: 10px 20px; /* 좌우 여백 축소 */
+    }
 
-/*@media screen and (max-width: 768px) {*/
-/*    .edit_section .image_container > div{*/
-/*        display: flex;*/
-/*        & > img{*/
-/*            position: relative;*/
-/*            flex: 1;*/
-/*        }*/
-/*    }*/
-/*}*/
+    header > .main_menu {
+        gap: 20px; /* 메뉴 간격 좁힘 */
+    }
 
-/*@media screen and (max-width: 480px) {}*/
+    header > .main_menu > li > a.menu_link {
+        font-size: 18px; /* 폰트 크기 조절 */
+    }
+
+    .submenu_container {
+        padding: 30px 40px; /* 서브메뉴 내부 여백 조절 */
+    }
+
+    /* 2. 메인 상품 리스트 (Trending Now) */
+    .trending_section > h2 {
+        font-size: 40px; /* 제목 크기 축소 */
+        padding-top: 60px;
+    }
+
+    .trending_section .product_list > li {
+        flex: 0 0 31%; /* 한 줄에 약 3개씩 노출 (기존 4개에서 조절) */
+        min-width: 31%;
+    }
+
+    .trending_section .title {
+        font-size: 18px; /* 상품명 크기 조절 */
+    }
+
+    /* 3. Fila Edit 섹션 조절 */
+    .edit_section {
+        padding: 40px;
+        display: flex;
+        flex-direction: column; /* 가로 배열에서 세로 배열로 변경 고려 */
+    }
+
+    .edit_section > h2 {
+        font-size: 200px; /* 배경 텍스트 크기 대폭 축소 */
+        /*position: relative; !* 위치 재조정 *!*/
+        top: 0;
+        text-align: end;
+        z-index: 100;
+    }
+
+    .edit_section .image_container {
+        position: relative;
+        padding-top: 100px;
+    }
+
+    .edit_section > .label_container {
+        padding-left: 0;
+        justify-content: center; /* 중앙 정렬 */
+        /*margin-top: 20px;*/
+    }
+
+    .edit_section > .label_container a {
+        font-size: 36px;
+    }
+
+    /* 4. 정보 섹션 (Grid 조절) */
+    .informational_section > h2 {
+        font-size: 60px;
+    }
+
+    .informational_section > div > a {
+        height: 600px; /* 배경 이미지 높이 축소 */
+    }
+
+    .informational_section .information > h3 {
+        font-size: 40px;
+    }
+
+    .informational_section .information > p {
+        font-size: 20px;
+    }
+
+    /* 5. 하단 배너 섹션 (2번째 정보 섹션) */
+    .informational_section2 {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .informational_section2 > div {
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
+    .informational_section2 > div > img {
+        display: none;
+    }
+
+    .informational_section2 > div > p {
+        font-size: 32px;
+        position: static;
+        transform: none;
+        padding: 40px 20px;
+    }
+
+    .informational_section2 > div > button {
+        left: 90%;
+        bottom: 10%;
+        transform: translateX(-50%);
+    }
+
+    /* 6. 컬렉션 섹션 조절 */
+    .collection_section .collection_section_header {
+        padding: 60px 20px;
+    }
+
+    .collection_section .collection_section_header > h2 {
+        font-size: 60px;
+    }
+
+    .collection_section_wrapper {
+        height: 600px; /* 태블릿 높이 설정 */
+    }
+
+    .collection_section .collection_section_item > a {
+        height: 100%; /* 부모의 600px을 꽉 채움 */
+        flex: 0 0 80%; /* 이미지 너비 적절히 조절 */
+    }
+
+    .collection_section .collection_section_header > div > button {
+        display: flex;
+    }
+
+    .collection_section_wrapper {
+        height: 500px;
+    }
+}
 
 
 /* ==========================================================================
@@ -1000,7 +1126,7 @@ footer hr {
         padding: 40px 10px 10px 10px;
     }
 
-    .trending_section .trending_section_items > div > ul > li{
+    .trending_section .trending_section_items > div > ul > li {
         font-size: 10px;
     }
 
@@ -1035,7 +1161,7 @@ footer hr {
     .edit_section > .label_container {
         display: flex;
         flex: 1;
-        flex-direction: flex;
+        flex-direction: column; /* 세로 배치 */
         gap: 20px;
         padding-left: 0;
         z-index: 2;
@@ -1070,15 +1196,24 @@ footer hr {
         line-height: 1.5;
     }
 
-    .collection_section .collection_section_header{
+    .collection_section_wrapper {
+        height: 500px; /* 모바일은 화면이 작으니 높이를 더 줄임 */
+    }
+
+    .collection_section .collection_section_item > a {
+        height: 100%; /* 부모의 500px을 꽉 채우도록 강제 */
+        flex: 0 0 85vw; /* 모바일에서는 너비를 화면에 맞게 조절 */
+    }
+
+    .collection_section .collection_section_header {
         padding: 30px 0 20px 20px;
     }
 
-    .collection_section .collection_section_header > h2{
+    .collection_section .collection_section_header > h2 {
         font-size: 60px;
     }
 
-    .collection_section .collection_section_header > div{
+    .collection_section .collection_section_header > div {
         display: none;
     }
 
@@ -1086,83 +1221,80 @@ footer hr {
         font-size: 60px;
     }
 
-    .informational_section3 .informational_section3_header > button{
+    .informational_section3 .informational_section3_header > button {
         display: none;
     }
 
-    .paragraph_section > div > b{
+    .paragraph_section > div > b {
         font-size: 28px;
     }
 
-    .paragraph_section > div > p{
+    .paragraph_section > div > p {
         font-size: 20px;
     }
 
-        /* 푸터 사이트 네비게이션 */
-
+    /* 푸터 사이트 네비게이션 */
     /* ==========================================================================
        푸터 반응형 스타일 (768px 이하)
        ========================================================================== */
-
-    @media screen and (max-width: 768px) {
-        footer {
-            padding: 40px 20px; /* 좌우 여백 축소 */
-        }
-
-        /* 1. 상단 섹션: 메뉴와 SNS/정보 영역을 세로로 배치 */
-        footer > div:first-of-type {
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        /* 2. 사이트 네비게이션 (Corporate, Partnership 등) */
-        footer .site_nav {
-            flex-direction: column; /* 메뉴 덩어리들을 세로로 */
-            gap: 30px;
-        }
-
-        footer .site_nav > div {
-            width: 100%; /* 너비를 꽉 채움 */
-        }
-
-        footer .site_nav h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #333; /* 모바일에서 구분선 추가 (선택사항) */
-            padding-bottom: 8px;
-        }
-
-        /* 3. SNS 및 연락처 정보 영역 */
-        footer .sns_nav ul {
-            justify-content: flex-start; /* 왼쪽 정렬 혹은 center */
-            margin-bottom: 20px;
-        }
-
-        footer .me_information {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* 4. 하단 카피라이트 및 기업 정보 영역 */
-        footer > div:last-of-type {
-            flex-direction: column; /* 기업정보와 사이트공지를 세로로 */
-            gap: 20px;
-            text-align: left; /* 모바일에서는 왼쪽 정렬이 가독성이 좋음 */
-        }
-
-        .corp_information {
-            font-size: 12px;
-            line-height: 1.8;
-        }
-
-        .corp_information span {
-            display: block; /* 정보를 한 줄씩 나오게 하여 줄바꿈 최적화 */
-            margin-bottom: 4px;
-        }
-
-        .site_information {
-            text-align: left; /* 오른쪽 정렬되어 있던 것을 왼쪽으로 */
-            font-size: 12px;
-            color: #999; /* 공지사항은 약간 흐리게 처리 */
-        }
+    footer {
+        padding: 40px 20px; /* 좌우 여백 축소 */
     }
+
+    /* 1. 상단 섹션: 메뉴와 SNS/정보 영역을 세로로 배치 */
+    footer > div:first-of-type {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* 2. 사이트 네비게이션 (Corporate, Partnership 등) */
+    footer .site_nav {
+        flex-direction: column; /* 메뉴 덩어리들을 세로로 */
+        gap: 30px;
+    }
+
+    footer .site_nav > div {
+        width: 100%; /* 너비를 꽉 채움 */
+    }
+
+    footer .site_nav h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #333; /* 모바일에서 구분선 추가 (선택사항) */
+        padding-bottom: 8px;
+    }
+
+    /* 3. SNS 및 연락처 정보 영역 */
+    footer .sns_nav ul {
+        justify-content: flex-start; /* 왼쪽 정렬 혹은 center */
+        margin-bottom: 20px;
+    }
+
+    footer .me_information {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 4. 하단 카피라이트 및 기업 정보 영역 */
+    footer > div:last-of-type {
+        flex-direction: column; /* 기업정보와 사이트공지를 세로로 */
+        gap: 20px;
+        text-align: left; /* 모바일에서는 왼쪽 정렬이 가독성이 좋음 */
+    }
+
+    .corp_information {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .corp_information span {
+        display: block; /* 정보를 한 줄씩 나오게 하여 줄바꿈 최적화 */
+        margin-bottom: 4px;
+    }
+
+    .site_information {
+        text-align: left; /* 오른쪽 정렬되어 있던 것을 왼쪽으로 */
+        font-size: 12px;
+        color: #999; /* 공지사항은 약간 흐리게 처리 */
+    }
+}
